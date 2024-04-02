@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS estore_db;
+
+CREATE DATABASE estore_db;
