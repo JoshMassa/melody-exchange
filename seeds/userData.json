@@ -2,6 +2,26 @@
   {
     "name": "John Doe",
     "email": "johndoe@gmail.com",
-    "password": "password12345"
+    "password": "password123"
+  },
+  {
+    "name": "Admin",
+    "email": "admin@gmail.com",
+    "password": "password123"
+  },
+  {
+    "name": "Phil",
+    "email": "phil@gmail.com",
+    "password": "password123"
+  },
+  {
+    "name": "Josh",
+    "email": "josh@gmail.com",
+    "password": "password123"
+  },
+  {
+    "name": "Noelia",
+    "email": "noelia@gmail.com",
+    "password": "password123"
   }
 ]
