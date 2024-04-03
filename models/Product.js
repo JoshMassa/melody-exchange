@@ -27,13 +27,10 @@ Product.init(
         isDecimal: true,
       },
     },
-    stock: {
-      type: DataTypes.INTEGER,
+    condition: {
+      type: DataTypes.ENUM('new', 'used', 'refurbished'),
       allowNull: false,
-      defaultValue: 10,
-      validate: {
-        isNumeric: true,
-      },
+      defaultValue: 'new',
     },
     category_id: {
       type: DataTypes.INTEGER,
