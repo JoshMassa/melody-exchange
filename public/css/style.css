@@ -26,6 +26,23 @@
 }
 
 li {
+    margin-left: 80px;
+    gap: 20px;
+    margin-top: 50px;
     display: inline-block;
     padding: 10px 10px 10px 30px;
 }
+
+li a:hover,
+#login:hover {
+    color:crimson;
+    text-decoration: none;
+}
+
+#login {
+    margin-left: 80px;
+}
+
+/* header {
+    width: 100%;
+} */
