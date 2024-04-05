@@ -4,6 +4,7 @@ const session = require("express-session");
 const path = require("path");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
+const helpers = require("./utils/helpers")
 
 // sequelize and SequelizeStore dependencies
 const sequelize = require("./config/connection");
@@ -14,18 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // needs descriptive comment
-const hbs = exphbs.create({
-  helpers: {
-    formatDate(timestamp) {
-      const date = new Date(timestamp);
-      return date.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      });
-    },
-  },
-});
+const hbs = exphbs.create({helpers});
 
 // create session object for user auth
 const sess = {

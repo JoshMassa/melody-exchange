@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const { Post, User, Category, Product } = require('../models');
 
+// Home Route
 router.get('/', async (req, res) => {
-    console.log('Hello?');
     try {
         const postData = await Post.findAll({
             include: [
@@ -29,5 +29,35 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// Single Post Route
+router.get('/posts/:id', async (req, res) => {
+    const postData = await Post.findByPk(req.params.id, {
+        include: [
+          {
+            model: Product,
+          },
+          {
+            model: User,
+          },
+        ],
+      });
+
+      const post = postData.get({ plain: true });
+      res.render("post", {
+        post
+      });
+});
+
+// Login Route
+router.get('/login', async (req, res) => {
+    res.render("login");
+})
+
+// Login Route
+router.get('/signup', async (req, res) => {
+    res.render("signup");
+})
+
 
 module.exports = router;
