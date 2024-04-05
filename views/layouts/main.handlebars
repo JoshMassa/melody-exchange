@@ -1,11 +1,38 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Ecommerce Project</title>
-</head>
-<body>
+  </head>
+  <body class="">
+    <div>
+      <header class="w-100">
+        {{! <div class="container"> }}
+        <nav id="navbar" class="pb-8">
+          <figure id="navbar-logo" class="mt-6">
+            <img src="/images/logo.png" alt="main-logo" id="main-logo" />
+          </figure>
+          <ul>
+            <li><a class="navbarEl" href="/">Home</a></li>
+            <li><a class="navbarEl" href="/">Guitars</a></li>
+            <li><a class="navbarEl" href="/">Bass Guitars</a></li>
+            <li><a class="navbarEl" href="/">Drums</a></li>
+            <li><a class="navbarEl" href="/">Keyboard</a></li>
+            <li><a class="navbarEl" href="/">Amps and Effects</a></li>
+            {{! Conditionally renders login or logout links based on user's current login status }}
+            {{#if logged_in}}
+              <a class="navbarEl" id="logout" href="/logout">Logout</a>
+            {{else}}
+              <a class="navbarEl" id="login" href="/login">Login</a>
+            {{/if}}
+            <p id="title">{{this.title}}</p>
+          </ul>
+        </nav>
+        {{! </div> }}
+      </header>
+    </div>
     {{{body}}}
-</body>
+  </body>
 </html>
