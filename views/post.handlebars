@@ -1,0 +1,19 @@
+{{! post card }}
+<div class="card">
+  <div class="card-header">
+    <h2>{{post.title}}</h2>
+    <span>Posted by
+      {{post.user.name}}
+      on
+      {{format_date post.createdAt}}
+      at
+      {{format_time post.createdAt}}</span>
+  </div>
+  <div class="card-body">
+    <p>{{post.content}}</p>
+  </div>
+</div>
+
+<br />
+
+<a href="/" class="ml-8">Back</a>
