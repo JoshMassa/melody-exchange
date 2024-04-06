@@ -22,11 +22,11 @@
             <li><a class="navbarEl" href="/">Keyboard</a></li>
             <li><a class="navbarEl" href="/">Amps and Effects</a></li>
             {{! Conditionally renders login or logout links based on user's current login status }}
-            {{#if logged_in}}
-              <a class="navbarEl" id="logout" href="/logout">Logout</a>
-            {{else}}
+            
+              <a class="navbarEl" id="logout" href="/">Logout</a>
+            
               <a class="navbarEl" id="login" href="/login">Login</a>
-            {{/if}}
+            
             <p id="title">{{this.title}}</p>
           </ul>
         </nav>
@@ -34,5 +34,6 @@
       </header>
     </div>
     {{{body}}}
+    <script src="./js/logout.js"></script>
   </body>
 </html>
