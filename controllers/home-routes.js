@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 
 // Home Route
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
             include: [
@@ -50,6 +50,25 @@ router.get('/posts/:id', async (req, res) => {
       res.render("post", {
         post
       });
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Post }],
+        });
+
+        const user = userData.get({ plain: true });
+        res.render('dashboard', {
+            id: user.id,
+            name: user.name,
+            posts: user.posts,
+            logged_in: true,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 // Login Route

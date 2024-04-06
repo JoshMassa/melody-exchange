@@ -1,0 +1,47 @@
+<div class="row">
+    <div>
+        <h2 id="name" class="mt-3" >Welcome, {{name}}!</h2>
+    </div>
+</div>
+
+<div class="post-list">
+    <h3 id="yourPosts">Your Posts</h3>
+    {{#each posts}}
+    <a href="/posts/{{id}}" class="post-link">
+        <div class="card">
+            <div class="card-header">
+                <h2>{{title}}</h2>
+                <span>Posted by {{name}} on {{format_date createdAt}} at {{format_time createdAt}}</span>
+            </div>
+            <div class="card-body">
+                <p>{{content}}</p>
+            </div>
+        </div>
+    </a>
+    {{/each}}
+</div>
+
+<div id="form-adjust-create" class="container hidden">
+    <div class="row">
+        <h2 id="newPostHeader">Create New Post</h2>
+        <form class="form new-post-form">
+            <div class="form-group">
+                <label for="post-title">Title</label>
+                <input class="form-input" type="text" id="post-title" name="post-title" />
+            </div>
+            <div class="form-group">
+                <label for="new-post-content">Content</label>
+                <textarea class="form-input" type="text" rows="5" id="new-post-content" name="new-post-content"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="create-post-button" class="btn btn-dark">Create Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="form-group">
+    <button type="submit" id="newPostBtn" class="btn btn-dark">New Post</button>
+</div>
+
+<script src="/js/post.js"></script>
