@@ -9,6 +9,11 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: var(--offwhite);
+  overflow-x: hidden;
+}
+
 #main-logo {
   margin-left: 20px;
   max-width: 100px;
@@ -17,35 +22,35 @@
 
 #navbar {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--seafoam);
+  padding: 10px 20px;
 }
 
 .navbarEl {
   color: var(--offwhite);
   text-decoration: none;
+  margin-left: 7vw;
+
 }
 
-li {
-  margin-left: 80px;
-  gap: 20px;
-  margin-top: 50px;
-  display: inline-block;
-  padding: 10px 10px 10px 30px;
+#navbar ul {
+  display: flex;
 }
 
 li a:hover,
-#login:hover {
+#login:hover,
+#logout:hover,
+#signup:hover {
   color: crimson;
   text-decoration: none;
 }
 
-#login {
-  margin-left: 80px;
+#login,
+#logout {
+  margin-right: 30px;
 }
-
-/* header {
-    width: 100%;
-} */
 
 .card {
   margin: 20px;
@@ -86,4 +91,86 @@ li a:hover,
 
 .post-link:hover {
   text-decoration: none;
+}
+
+#form-adjust-create {
+  margin-top: 5%;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  margin: 15px 0px;
+  border: 2px solid black;
+  margin: 20px auto;
+  width: 95%;
+}
+
+#newPostHeader {
+    display: flex;
+    min-height: 30px;
+    background-color: black;
+    font-size: 18px;
+    align-items: center;
+    color: var(--seafoam);
+    padding-left: 1.7rem;
+}
+
+#newPostBtn {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 10rem;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+#post-title {
+  display: block;
+}
+
+.form-input {
+  padding-left: 5px;
+}
+
+#new-post-content {
+  height: 75px;
+}
+
+#create-post-button {
+    width: 95%;
+    margin: 10px 0px 5px 0px;
+}
+
+#new-post-content,
+#post-title {
+  display: block;
+}
+
+label {
+  display: block;
+}
+
+textarea,
+input {
+  width: 95%;
+}
+
+#name,
+#yourPosts {
+  text-align: center;
+}
+
+#login-btn {
+  background-color: var(--seafoam);
+  font-weight: 600;
+  border-style: none;
 }

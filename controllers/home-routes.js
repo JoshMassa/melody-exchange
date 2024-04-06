@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const { Post, User, Category, Product } = require('../models');
+const withAuth = require('../utils/auth');
+
 
 // Home Route
 router.get('/', async (req, res) => {
@@ -24,6 +26,7 @@ router.get('/', async (req, res) => {
 
         res.render('home', {
             posts,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
@@ -47,6 +50,25 @@ router.get('/posts/:id', async (req, res) => {
       res.render("post", {
         post
       });
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Post }],
+        });
+
+        const user = userData.get({ plain: true });
+        res.render('dashboard', {
+            id: user.id,
+            name: user.name,
+            posts: user.posts,
+            logged_in: true,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 // Login Route
