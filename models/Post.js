@@ -33,6 +33,14 @@ Post.init(
                 key: 'id',
             }
         },
+        category_id: {
+            type: DataTypes.INTEGER,
+            defaultValue: null,
+            references: {
+                model: 'category',
+                key: 'id',
+            }
+        },
     },
     {
         sequelize,
