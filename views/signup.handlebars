@@ -1,4 +1,26 @@
-<div class="card login-card">
+{{!-- signup card --}}
+  <div class="card-body mt-4 d-flex justify-content-center">
+    <form class="signup-form" action="/api/users" method="POST">
+    <h1 class="text-secondary">Sign Up Now!</h1>
+    <div>
+      <label for="name-signup" class="form-label mt-2">Username</label>
+      <input type="text" class="form-control" id="name-signup" aria-describedby="emailHelp" placeholder="Enter username">
+    </div>
+    <div>
+      <label for="exampleInputEmail1" class="form-label mt-2">Email address</label>
+      <input type="text" class="form-control" id="email-signup" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div>
+      <label for="exampleInputPassword1" class="form-label mt-2">Password</label>
+      <input type="password" class="form-control" id="password-signup" placeholder="Password" autocomplete="off">
+    </div>
+    <div>
+    <button type="submit" class="btn btn-outline-success mt-3" id="login-btn">Create Account</button>
+    <p id="options" class="mt-2">Already have an account? <a href="/login" class="text-secondary">Login now</a></p>
+  </div>
+    </form>
+{{!-- <div class="card login-card">
   <div class="card-header">
     <h2>Sign Up</h2>
   </div>
@@ -38,6 +60,6 @@
     </form>
     <p>Already have an account? <a href="/login">Login</a></p>
   </div>
-</div>
+</div> --}}
 
 <script src="./js/signup.js"></script>
