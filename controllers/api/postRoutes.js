@@ -12,7 +12,7 @@ router.post('/', withAuth, upload.single('image'), async (req, res) => {
             return res.status(400).json({ error: 'File upload failed' });
         }
         
-        const { title, price, content } = req.body;
+        const { title, price, content, category } = req.body;
         const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
         
         const newPost = await Post.create({
@@ -21,6 +21,7 @@ router.post('/', withAuth, upload.single('image'), async (req, res) => {
             content,
             image: imagePath,
             user_id: req.session.user_id,
+            category_id: category
         });
         
         res.status(200).json(newPost);
