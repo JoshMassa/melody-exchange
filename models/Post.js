@@ -23,6 +23,13 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: true,
         },
+        price: {
+            type: DataTypes.DECIMAL,
+            allowNull: false,
+            validate: {
+              isDecimal: true,
+            }
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

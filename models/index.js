@@ -19,6 +19,14 @@ Post.hasOne(Product, {
     foreignKey: "product_id",
 });
 
+Post.hasOne(Category, {
+    foreignKey: "category_id",
+});
+
+Category.belongsTo(Post, {
+    foreignKey: "category_id",
+});
+
 Category.hasMany(Product, {
     foreignKey: "category_id",
 });
