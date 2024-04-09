@@ -4,18 +4,8 @@ const withAuth = require('../../utils/auth');
 const multer = require('multer');
 const path = require('path');
 const express = require('express');
-const uploadsFolderPath = 'uploads';
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname));
-    }
-});
-
-const upload = multer({ storage });
+const upload = multer({ dest: "./public/uploads/" });
 
 // Create a new blog post
 router.post('/', withAuth, upload.single('image'), async (req, res) => {
@@ -25,8 +15,10 @@ router.post('/', withAuth, upload.single('image'), async (req, res) => {
         }
         
         console.log("Request file:", req.file);
+        console.log('req.body', req.body);
         const { title, content } = req.body;
-        const imagePath = req.file ? path.join(uploadsFolderPath, req.file.filename) : null;
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+        console.log('image path:', imagePath);
         
         const newPost = await Post.create({
             title,

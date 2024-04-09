@@ -35,6 +35,7 @@ router.get('/', async (req, res) => {
 
 // Single Post Route
 router.get('/posts/:id', async (req, res) => {
+    console.log('req.params.id:', req.params.id);
     const postData = await Post.findByPk(req.params.id, {
         include: [
           {
@@ -47,6 +48,7 @@ router.get('/posts/:id', async (req, res) => {
       });
 
       const post = postData.get({ plain: true });
+      console.log('post', post);
       res.render("post", {
         post
       });
