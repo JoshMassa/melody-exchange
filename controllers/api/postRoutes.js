@@ -12,11 +12,12 @@ router.post('/', withAuth, upload.single('image'), async (req, res) => {
             return res.status(400).json({ error: 'File upload failed' });
         }
         
-        const { title, content } = req.body;
+        const { title, price, content } = req.body;
         const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
         
         const newPost = await Post.create({
             title,
+            price,
             content,
             image: imagePath,
             user_id: req.session.user_id,

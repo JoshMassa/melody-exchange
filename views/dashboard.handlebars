@@ -14,8 +14,10 @@
                     <div class="card m-3">
                         <div class="card-header">
                             <h2>{{title}}</h2>
+                            <span>{{price}}</span>
                             <span>Posted by you on {{format_date createdAt}} at {{format_time createdAt}}</span>
                         </div>
+                        <img src="{{image}}" alt="your post img">
                         <div class="card-body">
                             <p>{{content}}</p>
                         </div>
@@ -34,6 +36,13 @@
                             <label for="post-title" class="form-label mt-4">Title:</label>
                             <input type="text" class="form-control" id="post-title" placeholder="Post Title">
                         </div>
+
+                        <div>
+                            <label for="post-price" class="form-label mt-4">Price:</label>
+                            <input type="text" class="form-control" id="post-price" placeholder="Post Price">
+                        </div>
+
+
                         <div>
                             <label for="new-post-content" class="form-label mt-4">Content:</label>
                             <textarea class="form-control" type="text" id="new-post-content" name="content" placeholder="What are you selling?" rows="3"></textarea>

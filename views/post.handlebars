@@ -6,6 +6,7 @@
     <h5 class="card-title"><a href="/posts/{{post.id}}" class="post-link text-dark-emphasis">{{post.title}}</a></h5>
     <h6 class="card-subtitle text-muted mt-4">{{post.content}}</h6>
   </div>
+  <span>${{post.price}}</span>
   {{#if post.image}}
     <img src="{{post.image}}" class="card-img-top" alt="Product Image">
   {{else}}

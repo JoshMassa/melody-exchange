@@ -2,39 +2,37 @@
   {
     "title": "1972 Peavey T-15",
     "content": "For sale - One Used 1972 Peavey T-15 - $400",
-    "user_id": 1,
-    "product_id": 1,
+    "price": 400,
     "category_id": 1
   },
   {
     "title": "2005 Gibson Les Paul Custom",
     "content": "Lightly-Used - $1750",
-    "user_id": 1,
-    "product_id": 1,
+    "price": 1750,
     "category_id": 1
   },
   {
     "title": "2014 Epiphone Thunderbird",
     "content": "Like-New - $300",
-    "user_id": 1,
+    "price": 300,
     "category_id": 2
   },
   {
     "title": "2018 Yamaha SBP2F50",
     "content": "Lightly used - $550",
-    "user_id": 1,
+    "price": 550,
     "category_id": 3
   },
   {
     "title": "Roland FANTOM-06 Synthesizer",
     "content": "New - $1500",
-    "user_id": 1,
+    "price": 1500,
     "category_id": 4
   },
   {
     "title": "Marshall DSL40CR 40-watt Tube Combo Amp",
     "content": "New - $700",
-    "user_id": 1,
+    "price": 700,
     "category_id": 5
   }
 ]
