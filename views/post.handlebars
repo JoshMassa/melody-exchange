@@ -4,9 +4,9 @@
   <h3 class="card-header text-success mt-2">Instrument for sale!</h3>
   <div class="card-body pb-0">
     <h5 class="card-title"><a href="/posts/{{post.id}}" class="post-link text-dark-emphasis">{{post.title}}</a></h5>
+    <span class="badge bg-success">${{post.price}}</span>
     <h6 class="card-subtitle text-muted mt-4">{{post.content}}</h6>
   </div>
-  <span>${{post.price}}</span>
   {{#if post.image}}
     <img src="{{post.image}}" class="card-img-top" alt="Product Image">
   {{else}}

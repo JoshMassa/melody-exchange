@@ -36,18 +36,29 @@
                     <form class="form new-post-form" action="/dashboard" method="POST" enctype="multipart/form-data">
                         <div>
                             <label for="post-title" class="form-label mt-4">Title:</label>
-                            <input type="text" class="form-control" id="post-title" placeholder="Post Title">
+                            <input type="text" class="form-control" id="post-title" placeholder="Instrument Type">
                         </div>
 
                         <div>
                             <label for="post-price" class="form-label mt-4">Price:</label>
-                            <input type="text" class="form-control" id="post-price" placeholder="Post Price">
+                            <input type="text" class="form-control" id="post-price" placeholder="Instrument Price">
                         </div>
 
+                            <div>
+      <label for="categorySelect" class="form-label mt-4">Select Category</label>
+      <select class="form-select" id="category-select">
+        <option>Choose Category Below</option>
+        <option>Guitars</option>
+        <option>Bass Guitars</option>
+        <option>Drums</option>
+        <option>Keyboard</option>
+        <option>Amps and Effects</option>
+      </select>
+    </div>
 
                         <div>
                             <label for="new-post-content" class="form-label mt-4">Content:</label>
-                            <textarea class="form-control" type="text" id="new-post-content" name="content" placeholder="What are you selling?" rows="3"></textarea>
+                            <textarea class="form-control" type="text" id="new-post-content" name="content" placeholder="Any extra info such as condition, model, etc." rows="3"></textarea>
                         </div>
                         <div>
                             <label for="post-image" class="form-label mt-4">Image:</label>
