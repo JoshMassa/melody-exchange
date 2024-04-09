@@ -1,31 +1,60 @@
 {{! post card }}
 {{#each posts as |post|}}
-<section class="d-flex justify-content-center">
-<div class="container w-50 card mb-3">
-  <h3 class="card-header text-success mt-2">Instrument for sale!</h3>
-  <div class="card-body pb-0">
-    <h5 class="card-title"><a href="/posts/{{this.id}}" class="post-link text-dark-emphasis">{{this.title}}</a></h5>
-    <span class="badge bg-success">${{this.price}}</span>
-    <h6 class="card-subtitle text-muted mt-4">{{this.content}}</h6>
-  </div>
-  {{#if post.image}}
-  <img src="{{post.image}}" class="card-img-top" alt="Product Image">
-  {{else}}
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none ms-4" width="100%" height="100%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-    <rect y="18" rx="8" ry="8" width="80%" height="80%" fill="#868e96"></rect>
-    <text x="40%" y="50%" text-anchor="middle" fill="#dee2e6" dy=".3em">Product img</text>
-  </svg>
-  {{/if}}
-  <div class="card-body">
-    <a href="#" class="card-link text-info">Buy now</a>
-    <a href="#" class="card-link text-info">Comment</a>
-  </div>
-  <div class="card-footer text-body-tertiary mb-2">
-   Posted by
-          {{user.name}}
-          on
-          {{format_date this.createdAt}} at {{format_time this.createdAt}}
-  </div>
-</div>
-</section>
+  <section class='d-flex justify-content-center'>
+    <div class='container w-50 card mb-3 mt-3'>
+      <h3 class='card-header text-success mt-2'>Instrument for sale!</h3>
+      <div class='card-body pb-0'>
+        <h5 class='card-title'><a
+            href='/posts/{{this.id}}'
+            class='post-link text-dark-emphasis'
+          >{{this.title}}</a></h5>
+        <span class='badge bg-success'>${{this.price}}</span>
+        <h6 class='card-subtitle text-muted mt-4'>{{this.content}}</h6>
+      </div>
+      {{#if post.image}}
+        <img src='{{post.image}}' class='card-img-top' alt='Product Image' />
+      {{else}}
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='d-block user-select-none ms-4'
+          width='100%'
+          height='100%'
+          aria-label='Placeholder: Image cap'
+          focusable='false'
+          role='img'
+          preserveAspectRatio='xMidYMid slice'
+          viewBox='0 0 318 180'
+          style='font-size:1.125rem;text-anchor:middle'
+        >
+          <rect
+            y='18'
+            rx='8'
+            ry='8'
+            width='80%'
+            height='80%'
+            fill='#868e96'
+          ></rect>
+          <text
+            x='40%'
+            y='50%'
+            text-anchor='middle'
+            fill='#dee2e6'
+            dy='.3em'
+          >Product img</text>
+        </svg>
+      {{/if}}
+      <div class='card-body'>
+        <a href='#' class='card-link text-info'>Buy now</a>
+        <a href='#' class='card-link text-info'>Comment</a>
+      </div>
+      <div class='card-footer text-body-tertiary mb-2'>
+        Posted by
+        {{user.name}}
+        on
+        {{format_date this.createdAt}}
+        at
+        {{format_time this.createdAt}}
+      </div>
+    </div>
+  </section>
 {{/each}}
