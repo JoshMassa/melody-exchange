@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { Category, Post, Product, User} = require('../../models');
 const withAuth = require('../../utils/auth');
 const multer = require('multer');
-const path = require('path');
-const express = require('express');
 
 const upload = multer({ dest: "./public/uploads/" });
 
@@ -14,11 +12,8 @@ router.post('/', withAuth, upload.single('image'), async (req, res) => {
             return res.status(400).json({ error: 'File upload failed' });
         }
         
-        console.log("Request file:", req.file);
-        console.log('req.body', req.body);
         const { title, content } = req.body;
         const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
-        console.log('image path:', imagePath);
         
         const newPost = await Post.create({
             title,
@@ -33,8 +28,5 @@ router.post('/', withAuth, upload.single('image'), async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-// Defining a route to serve uploaded images
-router.use('/uploads', express.static(path.join(__dirname, '../../uploads')));
 
 module.exports = router;
