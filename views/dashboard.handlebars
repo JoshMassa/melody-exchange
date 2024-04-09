@@ -28,35 +28,28 @@
         <div class="col-4">
             <h3 id="newPostHeader" class="text-center">Create New Post:</h3>
             <div id="form-adjust-create" class="container hidden">
-                {{!-- <h3 id="newPostHeader">Create New Post</h3> --}}
                 <div class="col">
-                    {{!-- <h3 id="newPostHeader">Create New Post</h3> --}}
-                    <form class="form new-post-form">
+                    <form class="form new-post-form" action="/dashboard" method="POST" enctype="multipart/form-data">
                         <div>
                             <label for="post-title" class="form-label mt-4">Title:</label>
                             <input type="text" class="form-control" id="post-title" placeholder="Post Title">
                         </div>
                         <div>
                             <label for="new-post-content" class="form-label mt-4">Content:</label>
-                            <textarea class="form-control" type="text" id="new-post-content" placeholder="What are you selling?" rows="3"></textarea>
+                            <textarea class="form-control" type="text" id="new-post-content" name="content" placeholder="What are you selling?" rows="3"></textarea>
                         </div>
-                        {{!-- <div class="form-group">
-                            <label for="new-post-content">Content</label>
-                            <textarea class="form-input" type="text" rows="5" id="new-post-content"
-                                name="new-post-content"></textarea>
-                        </div> --}}
+                        <div>
+                            <label for="post-image" class="form-label mt-4">Image:</label>
+                            <input type="file" class="form-control" id="post-image" name="image">
+                        </div>
                         <div class="form-group">
-                            <button type="submit" id="create-post-button" class=" btn btn-success m-3">Create
-                                Post</button>
+                            <button type="submit" id="create-post-button" class="btn btn-success m-3">Create Post</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    {{!-- <div class="form-group">
-        <button type="submit" id="newPostBtn" class="btn btn-dark">New Post</button>
-    </div> --}}
-
-    <script src="/js/post.js"></script>
+<script src="/js/post.js"></script>
