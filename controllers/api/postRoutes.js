@@ -30,4 +30,18 @@ router.post('/', withAuth, upload.single('image'), async (req, res) => {
     }
 });
 
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        const postId = req.params.id;
+        const deletedPost = await Post.destroy({ where: { id: postId } });
+        if (deletedPost === 0) {
+            return res.status(404).json({ error: 'Post not found' });
+        }
+        res.status(204).send();
+    } catch (err) {
+        console.error("Error:", err);
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
