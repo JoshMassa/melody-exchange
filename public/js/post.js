@@ -3,6 +3,7 @@ const newPostFormHandler = async (event) => {
 
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#new-post-content').value.trim();
+    const image = document.querySelector('#post-image').files[0];
     const titleInput = document.getElementById('post-title');
     const postTitleContent = titleInput.value.trim();
     const postTitleCharLimit = 50;
@@ -16,16 +17,20 @@ const newPostFormHandler = async (event) => {
         alert('Error: Title cannot exceed ' + postTitleCharLimit + ' characters.');
     }
 
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('image', image);
+
     try {
         const response = await fetch('/api/posts', {
             method: 'POST',
-            body: JSON.stringify({ title, content }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            body: formData,
         });
 
         if (response.ok) {
+            const responseData = await response.json();
+            const imageUrl = responseData.imageUrl;
             document.location.replace('/dashboard');
         }
     } catch (err) {

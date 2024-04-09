@@ -19,6 +19,10 @@ Post.init(
             type: DataTypes.STRING(1000),
             allowNull: false,
         },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -30,6 +34,14 @@ Post.init(
             type: DataTypes.INTEGER,
             references: {
                 model: 'product',
+                key: 'id',
+            }
+        },
+        category_id: {
+            type: DataTypes.INTEGER,
+            defaultValue: null,
+            references: {
+                model: 'category',
                 key: 'id',
             }
         },

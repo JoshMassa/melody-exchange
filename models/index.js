@@ -23,6 +23,10 @@ Category.hasMany(Product, {
     foreignKey: "category_id",
 });
 
+Category.hasMany(Post, {
+    foreignKey: "category_id",
+})
+
 Product.belongsTo(User, {
     foreignKey: "user_id",
 });

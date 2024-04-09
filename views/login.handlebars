@@ -1,33 +1,19 @@
-<div class="card login-card">
-  <div class="card-header">
-    <h2>Login</h2>
-  </div>
-  <div class="card-body">
+{{!-- login card --}}
+  <div class="card-body mt-4 d-flex justify-content-center">
     <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">Email:</label>
-        <input
-          type="text"
-          id="email-login"
-          name="email"
-          placeholder="Enter your email"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="password-login">Password:</label>
-        <input
-          type="password"
-          id="password-login"
-          name="password"
-          placeholder="Enter your password"
-          required
-        />
-      </div>
-      <button type="submit" class="btn btn-primary mt-2" id="login-btn">Log In</button>
-    </form>
-    <p id="options" class="ml-4">Don't have an account? <a id="signup" href="/signup">Sign Up</a></p>
+    <h1 class="text-secondary text-success">Login</h1>
+    <div>
+      <label for="email-login" class="form-label mt-4">Email address</label>
+      <input type="text" class="form-control" id="email-login" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div>
+      <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+      <input type="password" class="form-control" id="password-login" placeholder="Password" autocomplete="off">
+    </div>
+    <div>
+    <button type="submit" class="btn btn-outline-success mt-3" id="login-btn">Log In</button>
+    <p id="options" class="mt-2">Don't have an account? <a id="signup" href="/signup" class="text-secondary">Sign Up</a></p>
   </div>
-</div>
+    </form>
 
 <script src="/js/login.js"></script>
