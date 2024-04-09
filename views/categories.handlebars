@@ -6,58 +6,62 @@
 </div>
 
 {{#each guitarsPosts as |guitarPost|}}
-  <section class='d-flex justify-content-center'>
-    <div class='container w-50 card mb-3'>
-      <h3 class='card-header mt-2'>Instrument for sale!</h3>
+  <div class="d-flex justify-content-center">
+  <section>
+    <div class='container w-75 card mb-3 mt-3'>
+      <h3 class='card-header text-success mt-2 d-flex justify-content-center'>Instrument for sale!</h3>
       <div class='card-body pb-0'>
         <h5 class='card-title'><a
             href='/posts/{{id}}'
-            class='post-link text-secondary'
-          >{{title}}</a></h5>
-          <span class='badge bg-success mb-2'>${{price}}</span>
+            class='post-link text-dark-emphasis fs-2 d-flex justify-content-center'
+          >{{title}}</a>
+        </h5>
+      <div class="card-price mb-3 d-flex justify-content-center">
+        <span class='badge mt-2 bg-success w-25 py-3 fs-6'>${{price}}</span>
+      </div>
       </div>
       <div>
-        {{#if image}}
-          <img src='{{image}}' class='card-img-top' alt='Product Image' />
-        {{else}}
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='d-block user-select-none ms-4'
-            width='100%'
-            height='100%'
-            aria-label='Placeholder: Image cap'
-            focusable='false'
-            role='img'
-            preserveAspectRatio='xMidYMid slice'
-            viewBox='0 0 318 180'
-            style='font-size:1.125rem;text-anchor:middle'
-          >
-            <rect
-              y='18'
-              rx='8'
-              ry='8'
-              width='80%'
-              height='80%'
-              fill='#868e96'
-            ></rect>
-            <text
-              x='40%'
-              y='50%'
-              text-anchor='middle'
-              fill='#dee2e6'
-              dy='.3em'
-            >Product img</text>
-          </svg>
-        {{/if}}
+      {{#if image}}
+        <img src='{{image}}' class='card-img-top' alt='Product Image' />
+      {{else}}
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='d-block user-select-none ms-4'
+          width='100%'
+          height='100%'
+          aria-label='Placeholder: Image cap'
+          focusable='false'
+          role='img'
+          preserveAspectRatio='xMidYMid slice'
+          viewBox='0 0 318 180'
+          style='font-size:1.125rem;text-anchor:middle'
+        >
+          <rect
+            y='18'
+            rx='8'
+            ry='8'
+            width='80%'
+            height='80%'
+            fill='#868e96'
+          ></rect>
+          <text
+            x='40%'
+            y='50%'
+            text-anchor='middle'
+            fill='#dee2e6'
+            dy='.3em'
+          >Product img</text>
+        </svg>
+      {{/if}}
       </div>
-      <div class="card-content">
-        <p class='card-subtitle text-muted mt-4 mx-3'>{{content}}</p>
+      <div class="d-flex mt-4 mb-3 border-top border-bottom px-2 py-2">
+        <p class='card-subtitle text-muted'>{{content}}</p>
       </div>
-      <div class='card-body'>
-        <a href='#' class='card-link text-secondary'>Buy now</a>
-        <a href='#' class='card-link text-secondary'>Comment</a>
+      <div class='card-options mb-2 d-flex justify-content-center'>
+        <a href='#' class='card-link text-info text-decoration-none'>Buy now</a>
+        <a href='#' class='card-link text-info text-decoration-none'>Comment</a>
       </div>
-      <div class='card-footer text-body-tertiary mb-2'>
+      <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
         Posted by
         {{user.name}}
         on
@@ -67,61 +71,66 @@
       </div>
     </div>
   </section>
+  </div>
 {{/each}}
 
 {{#each bassGuitarsPosts as |bassGuitarPost|}}
-  <section class='d-flex justify-content-center'>
-    <div class='container w-50 card mb-3'>
-      <h3 class='card-header mt-2'>Instrument for sale!</h3>
+  <div class="d-flex justify-content-center">
+  <section>
+    <div class='container w-75 card mb-3 mt-3'>
+      <h3 class='card-header text-success mt-2 d-flex justify-content-center'>Instrument for sale!</h3>
       <div class='card-body pb-0'>
         <h5 class='card-title'><a
             href='/posts/{{id}}'
-            class='post-link text-secondary'
-          >{{title}}</a></h5>
-          <span class='badge bg-success mb-2'>${{price}}</span>
+            class='post-link text-dark-emphasis fs-2 d-flex justify-content-center'
+          >{{title}}</a>
+        </h5>
+      <div class="card-price mb-3 d-flex justify-content-center">
+        <span class='badge mt-2 bg-success w-25 py-3 fs-6'>${{price}}</span>
+      </div>
       </div>
       <div>
-        {{#if image}}
-          <img src='{{image}}' class='card-img-top' alt='Product Image' />
-        {{else}}
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='d-block user-select-none ms-4'
-            width='100%'
-            height='100%'
-            aria-label='Placeholder: Image cap'
-            focusable='false'
-            role='img'
-            preserveAspectRatio='xMidYMid slice'
-            viewBox='0 0 318 180'
-            style='font-size:1.125rem;text-anchor:middle'
-          >
-            <rect
-              y='18'
-              rx='8'
-              ry='8'
-              width='80%'
-              height='80%'
-              fill='#868e96'
-            ></rect>
-            <text
-              x='40%'
-              y='50%'
-              text-anchor='middle'
-              fill='#dee2e6'
-              dy='.3em'
-            >Product img</text>
-          </svg>
-        {{/if}}
+      {{#if image}}
+        <img src='{{image}}' class='card-img-top' alt='Product Image' />
+      {{else}}
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='d-block user-select-none ms-4'
+          width='100%'
+          height='100%'
+          aria-label='Placeholder: Image cap'
+          focusable='false'
+          role='img'
+          preserveAspectRatio='xMidYMid slice'
+          viewBox='0 0 318 180'
+          style='font-size:1.125rem;text-anchor:middle'
+        >
+          <rect
+            y='18'
+            rx='8'
+            ry='8'
+            width='80%'
+            height='80%'
+            fill='#868e96'
+          ></rect>
+          <text
+            x='40%'
+            y='50%'
+            text-anchor='middle'
+            fill='#dee2e6'
+            dy='.3em'
+          >Product img</text>
+        </svg>
+      {{/if}}
       </div>
-      <div class="card-content">
-        <p class='card-subtitle text-muted mt-4 mx-3'>{{content}}</p>
+      <div class="d-flex mt-4 mb-3 border-top border-bottom px-2 py-2">
+        <p class='card-subtitle text-muted'>{{content}}</p>
       </div>
-      <div class='card-body'>
-        <a href='#' class='card-link text-secondary'>Buy now</a>
-        <a href='#' class='card-link text-secondary'>Comment</a>
+      <div class='card-options mb-2 d-flex justify-content-center'>
+        <a href='#' class='card-link text-info text-decoration-none'>Buy now</a>
+        <a href='#' class='card-link text-info text-decoration-none'>Comment</a>
       </div>
-      <div class='card-footer text-body-tertiary mb-2'>
+      <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
         Posted by
         {{user.name}}
         on
@@ -131,61 +140,66 @@
       </div>
     </div>
   </section>
+  </div>
 {{/each}}
 
 {{#each drumsPosts as |drumPost|}}
-  <section class='d-flex justify-content-center'>
-    <div class='container w-50 card mb-3'>
-      <h3 class='card-header mt-2'>Instrument for sale!</h3>
+  <div class="d-flex justify-content-center">
+  <section>
+    <div class='container w-75 card mb-3 mt-3'>
+      <h3 class='card-header text-success mt-2 d-flex justify-content-center'>Instrument for sale!</h3>
       <div class='card-body pb-0'>
         <h5 class='card-title'><a
             href='/posts/{{id}}'
-            class='post-link text-secondary'
-          >{{title}}</a></h5>
-          <span class='badge bg-success mb-2'>${{price}}</span>
+            class='post-link text-dark-emphasis fs-2 d-flex justify-content-center'
+          >{{title}}</a>
+        </h5>
+      <div class="card-price mb-3 d-flex justify-content-center">
+        <span class='badge mt-2 bg-success w-25 py-3 fs-6'>${{price}}</span>
+      </div>
       </div>
       <div>
-        {{#if image}}
-          <img src='{{image}}' class='card-img-top' alt='Product Image' />
-        {{else}}
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='d-block user-select-none ms-4'
-            width='100%'
-            height='100%'
-            aria-label='Placeholder: Image cap'
-            focusable='false'
-            role='img'
-            preserveAspectRatio='xMidYMid slice'
-            viewBox='0 0 318 180'
-            style='font-size:1.125rem;text-anchor:middle'
-          >
-            <rect
-              y='18'
-              rx='8'
-              ry='8'
-              width='80%'
-              height='80%'
-              fill='#868e96'
-            ></rect>
-            <text
-              x='40%'
-              y='50%'
-              text-anchor='middle'
-              fill='#dee2e6'
-              dy='.3em'
-            >Product img</text>
-          </svg>
-        {{/if}}
+      {{#if image}}
+        <img src='{{image}}' class='card-img-top' alt='Product Image' />
+      {{else}}
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='d-block user-select-none ms-4'
+          width='100%'
+          height='100%'
+          aria-label='Placeholder: Image cap'
+          focusable='false'
+          role='img'
+          preserveAspectRatio='xMidYMid slice'
+          viewBox='0 0 318 180'
+          style='font-size:1.125rem;text-anchor:middle'
+        >
+          <rect
+            y='18'
+            rx='8'
+            ry='8'
+            width='80%'
+            height='80%'
+            fill='#868e96'
+          ></rect>
+          <text
+            x='40%'
+            y='50%'
+            text-anchor='middle'
+            fill='#dee2e6'
+            dy='.3em'
+          >Product img</text>
+        </svg>
+      {{/if}}
       </div>
-      <div class="card-content">
-        <p class='card-subtitle text-muted mt-4 mx-3'>{{content}}</p>
+      <div class="d-flex mt-4 mb-3 border-top border-bottom px-2 py-2">
+        <p class='card-subtitle text-muted'>{{content}}</p>
       </div>
-      <div class='card-body'>
-        <a href='#' class='card-link text-secondary'>Buy now</a>
-        <a href='#' class='card-link text-secondary'>Comment</a>
+      <div class='card-options mb-2 d-flex justify-content-center'>
+        <a href='#' class='card-link text-info text-decoration-none'>Buy now</a>
+        <a href='#' class='card-link text-info text-decoration-none'>Comment</a>
       </div>
-      <div class='card-footer text-body-tertiary mb-2'>
+      <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
         Posted by
         {{user.name}}
         on
@@ -195,61 +209,66 @@
       </div>
     </div>
   </section>
+  </div>
 {{/each}}
 
 {{#each keyboardsPosts as |keyboardPost|}}
-  <section class='d-flex justify-content-center'>
-    <div class='container w-50 card mb-3'>
-      <h3 class='card-header mt-2'>Instrument for sale!</h3>
+  <div class="d-flex justify-content-center">
+  <section>
+    <div class='container w-75 card mb-3 mt-3'>
+      <h3 class='card-header text-success mt-2 d-flex justify-content-center'>Instrument for sale!</h3>
       <div class='card-body pb-0'>
         <h5 class='card-title'><a
             href='/posts/{{id}}'
-            class='post-link text-secondary'
-          >{{title}}</a></h5>
-          <span class='badge bg-success mb-2'>${{price}}</span>
+            class='post-link text-dark-emphasis fs-2 d-flex justify-content-center'
+          >{{title}}</a>
+        </h5>
+      <div class="card-price mb-3 d-flex justify-content-center">
+        <span class='badge mt-2 bg-success w-25 py-3 fs-6'>${{price}}</span>
+      </div>
       </div>
       <div>
-        {{#if image}}
-          <img src='{{image}}' class='card-img-top' alt='Product Image' />
-        {{else}}
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='d-block user-select-none ms-4'
-            width='100%'
-            height='100%'
-            aria-label='Placeholder: Image cap'
-            focusable='false'
-            role='img'
-            preserveAspectRatio='xMidYMid slice'
-            viewBox='0 0 318 180'
-            style='font-size:1.125rem;text-anchor:middle'
-          >
-            <rect
-              y='18'
-              rx='8'
-              ry='8'
-              width='80%'
-              height='80%'
-              fill='#868e96'
-            ></rect>
-            <text
-              x='40%'
-              y='50%'
-              text-anchor='middle'
-              fill='#dee2e6'
-              dy='.3em'
-            >Product img</text>
-          </svg>
-        {{/if}}
+      {{#if image}}
+        <img src='{{image}}' class='card-img-top' alt='Product Image' />
+      {{else}}
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='d-block user-select-none ms-4'
+          width='100%'
+          height='100%'
+          aria-label='Placeholder: Image cap'
+          focusable='false'
+          role='img'
+          preserveAspectRatio='xMidYMid slice'
+          viewBox='0 0 318 180'
+          style='font-size:1.125rem;text-anchor:middle'
+        >
+          <rect
+            y='18'
+            rx='8'
+            ry='8'
+            width='80%'
+            height='80%'
+            fill='#868e96'
+          ></rect>
+          <text
+            x='40%'
+            y='50%'
+            text-anchor='middle'
+            fill='#dee2e6'
+            dy='.3em'
+          >Product img</text>
+        </svg>
+      {{/if}}
       </div>
-      <div class="card-content">
-        <p class='card-subtitle text-muted mt-4 mx-3'>{{content}}</p>
+      <div class="d-flex mt-4 mb-3 border-top border-bottom px-2 py-2">
+        <p class='card-subtitle text-muted'>{{content}}</p>
       </div>
-      <div class='card-body'>
-        <a href='#' class='card-link text-secondary'>Buy now</a>
-        <a href='#' class='card-link text-secondary'>Comment</a>
+      <div class='card-options mb-2 d-flex justify-content-center'>
+        <a href='#' class='card-link text-info text-decoration-none'>Buy now</a>
+        <a href='#' class='card-link text-info text-decoration-none'>Comment</a>
       </div>
-      <div class='card-footer text-body-tertiary mb-2'>
+      <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
         Posted by
         {{user.name}}
         on
@@ -259,72 +278,76 @@
       </div>
     </div>
   </section>
+  </div>
 {{/each}}
 
 {{#each ampsAndEffectsPosts}}
-  <section class='d-flex justify-content-center'>
-    <div class='container w-50 card mb-3'>
-      <h3 class='card-header mt-2'>Instrument for sale!</h3>
+  <div class="d-flex justify-content-center">
+  <section>
+    <div class='container w-75 card mb-3 mt-3'>
+      <h3 class='card-header text-success mt-2 d-flex justify-content-center'>Instrument for sale!</h3>
       <div class='card-body pb-0'>
         <h5 class='card-title'><a
-            href='/posts/{{this.id}}'
-            class='post-link text-secondary'
-          >{{this.title}}</a></h5>
-          <span class='badge bg-success'>${{this.price}}</span>
+            href='/posts/{{id}}'
+            class='post-link text-dark-emphasis fs-2 d-flex justify-content-center'
+          >{{title}}</a>
+        </h5>
+      
       </div>
       <div>
-        {{#if ampsAndEffectsPosts.image}}
-          <img src='{{ampsAndEffectsPosts.image}}' class='card-img-top' alt='Product Image' />
-        {{else}}
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='d-block user-select-none ms-4'
-            width='100%'
-            height='100%'
-            aria-label='Placeholder: Image cap'
-            focusable='false'
-            role='img'
-            preserveAspectRatio='xMidYMid slice'
-            viewBox='0 0 318 180'
-            style='font-size:1.125rem;text-anchor:middle'
-          >
-            <rect
-              y='18'
-              rx='8'
-              ry='8'
-              width='80%'
-              height='80%'
-              fill='#868e96'
-            ></rect>
-            <text
-              x='40%'
-              y='50%'
-              text-anchor='middle'
-              fill='#dee2e6'
-              dy='.3em'
-            >Product img</text>
-          </svg>
-        {{/if}}
+      {{#if image}}
+        <img src='{{image}}' class='card-img-top' alt='Product Image' />
+      {{else}}
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='d-block user-select-none ms-4'
+          width='100%'
+          height='100%'
+          aria-label='Placeholder: Image cap'
+          focusable='false'
+          role='img'
+          preserveAspectRatio='xMidYMid slice'
+          viewBox='0 0 318 180'
+          style='font-size:1.125rem;text-anchor:middle'
+        >
+          <rect
+            y='18'
+            rx='8'
+            ry='8'
+            width='80%'
+            height='80%'
+            fill='#868e96'
+          ></rect>
+          <text
+            x='40%'
+            y='50%'
+            text-anchor='middle'
+            fill='#dee2e6'
+            dy='.3em'
+          >Product img</text>
+        </svg>
+      {{/if}}
       </div>
-      <div class="card-content">
-        <p class='card-subtitle text-muted mt-4 mx-3'>{{this.content}}</p>
+      <div class="d-flex mt-4 mb-3 border-top border-bottom px-2 py-2">
+        <p class='card-subtitle text-muted'>{{content}}</p>
       </div>
-      <div class='card-body'>
-        <a href='#' class='card-link text-secondary'>Buy now</a>
-        <a href='#' class='card-link text-secondary'>Comment</a>
+      <div class='card-options mb-2 d-flex justify-content-center'>
+        <a href='#' class='card-link text-info text-decoration-none'>Buy now</a>
+        <a href='#' class='card-link text-info text-decoration-none'>Comment</a>
       </div>
-      <div class='card-footer text-body-tertiary mb-2'>
+      <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
         Posted by
         {{user.name}}
         on
-        {{format_date this.createdAt}}
+        {{format_date createdAt}}
         at
-        {{format_time this.createdAt}}
+        {{format_time createdAt}}
       </div>
     </div>
   </section>
+  </div>
 {{/each}}
 
-<div class='d-flex justify-content-center'>
+{{!-- <div class='text-align-center' style="display: block">
   <a href='/' class='btn btn-outline-light mt-3 mb-4 w-10'>Home</a>
-</div>
+</div> --}}

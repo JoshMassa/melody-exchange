@@ -13,10 +13,11 @@
                 <a href="/posts/{{id}}" class="post-link">
                     <div class="card m-3">
                         <div class="card-header">
-                            <h2>{{title}}</h2>
-                            <span>{{price}}</span>
-                            <span>Posted by you on {{format_date createdAt}} at {{format_time createdAt}}</span>
+                            <h2 class="d-flex justify-content-center">{{title}}</h2>
                 </a>
+                            <div class="card-price mb-3 d-flex justify-content-center">
+                                <span class='badge mt-2 bg-success w-15 py-1'>${{price}}</span>
+                            </div>
                         </div>
                         <div>
                             {{#if post.image}}
@@ -54,6 +55,9 @@
                         </div>
                         <div class="card-body">
                             <p>{{content}}</p>
+                        </div>
+                        <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
+                            Posted by you on {{format_date createdAt}} at {{format_time createdAt}}
                         </div>
                      <!-- Delete button with data-id attribute -->
                         <button type="button" class="btn btn-success delete-btn" data-id="{{id}}">Delete</button>
