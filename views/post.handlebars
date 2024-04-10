@@ -2,7 +2,7 @@
     <div class='container w-50 card mb-3 mt-3'>
       <h3 class='card-header text-success mt-2 d-flex justify-content-center'>Instrument for sale!</h3>
       <div class='card-body pb-0'>
-        <h5 class='card-title'><a
+        <h5 class='card-title text-center'><a
             href='/posts/{{post.id}}'
             class='post-link text-dark-emphasis fs-2 d-flex justify-content-center'
           >{{post.title}}</a>
@@ -36,8 +36,8 @@
             fill='#868e96'
           ></rect>
           <text
-            x='50%'
-            y='50%'
+            x='46%'
+            y='53%'
             text-anchor='middle'
             fill='#dee2e6'
             dy='.3em'
@@ -51,6 +51,7 @@
         <a href='#' class='card-link text-info text-decoration-none'>Buy now</a>
         <a href='#' id="comment-link" class='card-link text-info text-decoration-none'>Comment</a>
       </div>
+
       <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
         Posted by
         {{post.user.name}}
@@ -59,36 +60,65 @@
         at
         {{format_time post.createdAt}}
       </div>
+
+            <div id='form-adjust' class="container">
+  <div class="row">
+      <h2 id="commentHeader" class="text-center text-info">Recent comments:</h2>
+      <div class="comments">
+        {{#each post.comments}}
+        <div class="comment text-center border m-2">
+            <p class="text-body-secondary">{{content}}</p>
+        </div>
+        {{/each}}
+      </div>
+  </div>
+  
+  {{!-- I wanted to add a comment footer below --}}
+  {{!-- <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
+        Posted by
+        {{post.user.comment}}
+        on
+        {{format_date comment.createdAt}}
+        at
+        {{format_time comment.createdAt}}
+      </div> --}}
+</div>
+
     </div>
 </div>
 
-<div id='form-adjust' class="container">
+{{!-- <div id='form-adjust' class="container">
   <div class="row">
-      <h2 id="commentHeader"></h2>
+      <h2 id="commentHeader" class="text-center">Comment:</h2>
       <div class="comments">
         {{#each post.comments}}
-        <div class="comment">
+        <div class="comment text-center">
             <p>{{content}}</p>
         </div>
         {{/each}}
       </div>
   </div>
-</div>
+</div> --}}
 
-
-<div class="comment-form-container">
-    
+<div class="container d-flex justify-content-center">
+<div class="comment-form-container">   
     <form class="form comment-form" id="comment-form" style="display: none">
         <div class="form-group">
             <h2 id="commentFormHeader">
-                <label for="comment">Comment</label>
+              <label for="comment" class="form-label mt-4 text-dark">Add Comment:</label>
+                {{!-- <label for="comment" class="text-dark">Comment</label> --}}
             </h2>
+            <div>
+      {{!-- <label for="exampleTextarea" class="form-label mt-4">Example textarea</label> --}}
+      <textarea class="form-control" id="comment" type="text" rows="3"></textarea>
+    {{!-- </div>
             <textarea class="form-input" rows="5" type="text" id="comment"></textarea>
-        </div>
+        </div> --}}
         <div class="form-group">
             <button class="btn btn-dark" id="comment-form-button" type="submit">Submit</button>
         </div>
     </form>
+</div>
 </div>
 
 

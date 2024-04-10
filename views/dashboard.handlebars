@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row mt-2">
     <div>
-        <h2 id="name" class="mt-3 text-center">Welcome, <span class="text-success">{{name}}!</span></h2>
+        <h2 id="name" class="mt-3 text-center"><span class="border border-3 rounded-pill p-2">Welcome, <span class="text-success">{{name}}!</span></span></h2>
     </div>
 </div>
 
-<div class="container">
+<div class="container m-5">
     <div class="row">
         <div class="col-5 flex-column">
             <h3 id="yourPosts" class="">Your Posts:</h3>
@@ -13,7 +13,7 @@
                 <a href="/posts/{{id}}" class="post-link">
                     <div class="card m-3">
                         <div class="card-header">
-                            <h2 class="d-flex justify-content-center">{{title}}</h2>
+                            <h2 class="d-flex justify-content-center text-dark">{{title}}</h2>
                 </a>
                             <div class="card-price mb-3 d-flex justify-content-center">
                                 <span class='badge mt-2 bg-success w-15 py-1'>${{price}}</span>
@@ -54,7 +54,7 @@
                             {{/if}}
                         </div>
                         <div class="card-body">
-                            <p>{{content}}</p>
+                            <p class="text-center text-body-secondary">{{content}}</p>
                         </div>
                         <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
                             Posted by you on {{format_date createdAt}} at {{format_time createdAt}}
