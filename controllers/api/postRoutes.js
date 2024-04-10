@@ -45,4 +45,36 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
+router.get('/:id/comments', async (req, res) => {
+    try {
+        const postId = req.params.id;
+        const comments = await Comment.findAll({ where: { post_id: postId } });
+        res.status(200).json(comments);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.post('/:id/comments', withAuth, async (req, res) => {
+    try {
+        // Check that the requested post exists
+        const { content } = req.body;
+        const requestedPost = await Post.findByPk(req.params.id);
+        if (!requestedPost) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+
+        // Add the comment to the assiociated post
+        const newComment = await Comment.create({
+            content,
+            user_id: req.session.user_id,
+            post_id: req.params.id
+        });
+
+        res.status(200).json(newComment);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User, Category, Product } = require('../models');
+const { Post, User, Category, Product, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -34,12 +34,12 @@ router.get('/', async (req, res) => {
 });
 
 // Single Post Route
-router.get('/posts/:id', async (req, res) => {
+router.get('/posts/:id', withAuth, async (req, res) => {
     console.log('req.params.id:', req.params.id);
     const postData = await Post.findByPk(req.params.id, {
         include: [
           {
-            model: Product,
+            model: Comment,
           },
           {
             model: User,
@@ -50,7 +50,8 @@ router.get('/posts/:id', async (req, res) => {
       const post = postData.get({ plain: true });
       console.log('post', post);
       res.render("post", {
-        post
+        post,
+        logged_in: req.session.logged_in
       });
 });
 
@@ -82,6 +83,5 @@ router.get('/login', async (req, res) => {
 router.get('/signup', async (req, res) => {
     res.render("signup");
 })
-
 
 module.exports = router;
