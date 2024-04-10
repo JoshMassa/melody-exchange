@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Category, Post, Product, User} = require('../../models');
+const { Category, Post, Product, User, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 const multer = require('multer');
 

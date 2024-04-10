@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                // window.location.reload();
+                window.location.reload();
             } else {
                 alert('Failed to add comment');
             }
