@@ -7,7 +7,7 @@
 {{! post card }}
 {{#each posts as |post|}}
 <div class="d-flex justify-content-center col-12">
-  <section>
+  {{!-- <section> --}}
     <div class='container w-50 card mb-3 mt-3'>
       <h3 class='card-header text-success mt-2 d-flex justify-content-center'>Instrument for sale!</h3>
       <div class='card-body pb-0'>
@@ -20,7 +20,7 @@
         <span class='badge mt-2 bg-success w-25 py-3 fs-6'>${{post.price}}</span>
       </div>
       </div>
-      <div>
+      {{!-- <div> --}}
       {{#if post.image}}
         <img src='{{post.image}}' class='card-img-top' alt='Product Image' />
       {{else}}
@@ -38,22 +38,23 @@
         >
           <rect
             y='18'
+            x='5'
             rx='8'
             ry='8'
-            width='80%'
-            height='80%'
+            width='90%'
+            height='90%'
             fill='#868e96'
           ></rect>
           <text
-            x='40%'
-            y='50%'
+            x='46%'
+            y='53%'
             text-anchor='middle'
             fill='#dee2e6'
             dy='.3em'
-          >Product img</text>
+          >Product Image</text>
         </svg>
       {{/if}}
-      </div>
+      {{!-- </div> --}}
       <div class="d-flex mt-4 mb-3 border-top border-bottom px-2 py-2">
         <p class='card-subtitle text-muted'>{{post.content}}</p>
       </div>
@@ -70,6 +71,18 @@
         {{format_time post.createdAt}}
       </div>
     </div>
-  </section>
+  {{!-- </section> --}}
 </div>
 {{/each}}
+
+
+
+
+
+
+
+
+
+
+
+
