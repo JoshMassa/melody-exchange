@@ -1,9 +1,11 @@
+{{!-- Welcome message --}}
 <div class="row mt-2">
     <div>
         <h2 id="name" class="mt-3 text-center"><span class="border border-3 rounded-pill p-2">Welcome, <span class="text-success">{{name}}!</span></span></h2>
     </div>
 </div>
 
+{{!-- Users posts --}}
 <div class="container m-5">
     <div class="row">
         <div class="col-5 flex-column">
@@ -19,6 +21,7 @@
                                 <span class='badge mt-2 bg-success w-15 py-1'>${{price}}</span>
                             </div>
                         </div>
+                        {{!-- Display Users image using multer or a placeholder SVG --}}
                         <div>
                             {{#if post.image}}
                                 <img src='{{post.image}}' class='card-img-top' alt='Product Image' />
@@ -59,13 +62,13 @@
                         <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
                             Posted by you on {{format_date createdAt}} at {{format_time createdAt}}
                         </div>
-                     <!-- Delete button with data-id attribute -->
-                        <button type="button" class="btn btn-success delete-btn" data-id="{{id}}">Delete</button>
+                        <!-- Delete button with data-id attribute -->
+                        <button type="button" class="btn btn-link text-success text-decoration-none delete-btn" data-id="{{id}}">Delete Post</button>
                     </div>
                 {{/each}}
             </div>
         </div>
-
+        {{!-- Create new post form --}}
         <div class="col-4">
             <h3 id="newPostHeader" class="text-center">Create New Post:</h3>
             <div id="form-adjust-create" class="container hidden">

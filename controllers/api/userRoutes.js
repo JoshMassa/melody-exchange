@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
   
-        // res.status(200).json(userData);
         res.redirect('/');
       });
     } catch (err) {
@@ -28,6 +27,7 @@ router.get('/', async (req, res) => {
     }
   });
 
+// api/users/login route
 router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });
@@ -59,6 +59,7 @@ router.post('/login', async (req, res) => {
     }
   });
   
+  // api/users/logout route
   router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {
