@@ -1,31 +1,111 @@
-{{! post card }}
-<section class="d-flex justify-content-center">
-<div class="container w-50 card mb-3">
-  <h3 class="card-header text-success mt-2">Instrument for sale!</h3>
-  <div class="card-body pb-0">
-    <h5 class="card-title"><a href="/posts/{{post.id}}" class="post-link text-dark-emphasis">{{post.title}}</a></h5>
-    <h6 class="card-subtitle text-muted mt-4">{{post.content}}</h6>
-  </div>
-  {{#if post.image}}
-    <img src="{{post.image}}" class="card-img-top" alt="Product Image">
-  {{else}}
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none ms-4" width="100%" height="100%" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-    <rect y="18" rx="8" ry="8" width="80%" height="80%" fill="#868e96"></rect>
-    <text x="40%" y="50%" text-anchor="middle" fill="#dee2e6" dy=".3em">Product img</text>
-  </svg>
-  {{/if}}
-  <div class="card-body">
-    <a href="#" class="card-link text-info">Buy now</a>
-    <a href="#" class="card-link text-info">Comment</a>
-  </div>
-  <div class="card-footer text-body-tertiary mb-2">
-   Posted by
-          {{post.user.name}}
-          on
-          {{format_date post.createdAt}} at {{format_time post.createdAt}}
+<div class="d-flex justify-content-center col-12">
+    <div class='container w-50 card mb-3 mt-3'>
+      <h3 class='card-header text-success mt-2 d-flex justify-content-center'>Instrument for sale!</h3>
+      <div class='card-body pb-0'>
+        <h5 class='card-title text-center'><a
+            href='/posts/{{post.id}}'
+            class='post-link text-dark-emphasis fs-2 d-flex justify-content-center'
+          >{{post.title}}</a>
+        </h5>
+      <div class="card-price mb-3 d-flex justify-content-center">
+        <span class='badge mt-2 bg-success w-25 py-3 fs-6'>${{post.price}}</span>
+      </div>
+      </div>
+      {{#if post.image}}
+        <img src='{{post.image}}' class='card-img-top' alt='Product Image' />
+      {{else}}
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='d-block user-select-none ms-4'
+          width='100%'
+          height='100%'
+          aria-label='Placeholder: Image cap'
+          focusable='false'
+          role='img'
+          preserveAspectRatio='xMidYMid slice'
+          viewBox='0 0 318 180'
+          style='font-size:1.125rem;text-anchor:middle'
+        >
+          <rect
+            y='18'
+            x='5'
+            rx='8'
+            ry='8'
+            width='90%'
+            height='90%'
+            fill='#868e96'
+          ></rect>
+          <text
+            x='46%'
+            y='53%'
+            text-anchor='middle'
+            fill='#dee2e6'
+            dy='.3em'
+          >Product img</text>
+        </svg>
+      {{/if}}
+      <div class="d-flex mt-4 mb-3 border-top border-bottom px-2 py-2">
+        <p class='card-subtitle text-muted'>{{post.content}}</p>
+      </div>
+      <div class='card-options mb-2 d-flex justify-content-center'>
+        <a href='#' class='card-link text-info text-decoration-none'>Buy now</a>
+        <a href='#' id="comment-link" class='card-link text-info text-decoration-none'>Comment</a>
+      </div>
+
+      <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
+        Posted by
+        {{post.user.name}}
+        on
+        {{format_date post.createdAt}}
+        at
+        {{format_time post.createdAt}}
+      </div>
+
+{{!-- comment cards --}}
+<div id='form-adjust' class="container">
+  <div class="row">
+    <h2 id="commentHeader" class="text-center text-info">Recent comments:</h2>
+    <div class="comments">
+      {{#each post.comments}}
+      <div class="card border m-2">
+        <div class="card-body">
+          <p class="card-text">{{content}}</p>
+        </div>
+        <div class="card-footer text-muted text-right">
+          <small>
+            Posted by {{user.name}} on {{format_date createdAt}} at {{format_time createdAt}}
+          </small>
+        </div>
+      </div>
+      {{/each}}
+    </div>
   </div>
 </div>
-</section>
-<div class="d-flex justify-content-center">
-  <a href="/" class="btn btn-outline-success mt-3 mb-4 w-10">Previous</a>
+  
 </div>
+</div>
+
+{{!-- add comment form --}}
+<div class="container d-flex justify-content-center">
+<div class="comment-form-container">   
+    <form class="form comment-form" id="comment-form" style="display: none">
+        <div class="form-group">
+            <h2 id="commentFormHeader">
+              <label for="comment" class="form-label mt-4 text-dark">Add Comment:</label>
+                {{!-- <label for="comment" class="text-dark">Comment</label> --}}
+            </h2>
+            <div>
+      {{!-- <label for="exampleTextarea" class="form-label mt-4">Example textarea</label> --}}
+      <textarea class="form-control" id="comment" type="text" rows="3"></textarea>
+    {{!-- </div>
+            <textarea class="form-input" rows="5" type="text" id="comment"></textarea>
+        </div> --}}
+        <div class="form-group">
+            <button class="btn btn-dark" id="comment-form-button" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+</div>
+
+
+<script src="/js/comment.js"></script>

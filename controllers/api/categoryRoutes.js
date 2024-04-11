@@ -18,12 +18,13 @@ router.get('/guitars', async (req, res) => {
                 },
                 User
             ],
-            where: { category_id: guitarsCategory.id }
+            where: { category_id: guitarsCategory.id },
         });
 
         const posts = guitarsPosts.map(post => post.get({ plain: true }));
         res.render('categories', {
-            guitarsCategory: guitarsCategory.get({ plain: true }),
+            categoryName: guitarsCategory.category_name,
+            guitarsCategory: guitarsCategory,
             guitarsPosts: posts,
             logged_in: req.session.logged_in
         });
@@ -54,7 +55,8 @@ router.get('/bassguitars', async (req, res) => {
 
         const posts = bassGuitarsPosts.map(post => post.get({ plain: true }));
         res.render('categories', {
-            bassGuitarsCategory: bassGuitarsCategory.get({ plain: true }),
+            categoryName: bassGuitarsCategory.category_name,
+            bassGuitarsCategory: bassGuitarsCategory,
             bassGuitarsPosts: posts,
             logged_in: req.session.logged_in
         });
@@ -85,7 +87,8 @@ router.get('/drums', async (req, res) => {
 
         const posts = drumsPosts.map(post => post.get({ plain: true }));
         res.render('categories', {
-            drumsCategory: drumsCategory.get({ plain: true }),
+            categoryName: drumsCategory.category_name,
+            drumsCategory: drumsCategory,
             drumsPosts: posts,
             logged_in: req.session.logged_in
         });
@@ -116,7 +119,8 @@ router.get('/keyboards', async (req, res) => {
 
         const posts = keyboardsPosts.map(post => post.get({ plain: true }));
         res.render('categories', {
-            keyboardsCategory: keyboardsCategory.get({ plain: true }),
+            categoryName: keyboardsCategory.category_name,
+            keyboardsCategory: keyboardsCategory,
             keyboardsPosts: posts,
             logged_in: req.session.logged_in
         });
@@ -147,7 +151,8 @@ router.get('/ampsandeffects', async (req, res) => {
 
         const posts = ampsAndEffectsPosts.map(post => post.get({ plain: true }));
         res.render('categories', {
-            ampsAndEffectsCategory: ampsAndEffectsCategory.get({ plain: true }),
+            categoryName: ampsAndEffectsCategory.category_name,
+            ampsAndEffectsCategory: ampsAndEffectsCategory,
             ampsAndEffectsPosts: posts,
             logged_in: req.session.logged_in
         });

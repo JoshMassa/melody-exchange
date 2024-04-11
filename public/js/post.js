@@ -2,9 +2,11 @@ const newPostFormHandler = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#post-title').value.trim();
+    const price = document.querySelector('#post-price').value.trim();
     const content = document.querySelector('#new-post-content').value.trim();
     const image = document.querySelector('#post-image').files[0];
     const titleInput = document.getElementById('post-title');
+    const category = document.querySelector('#category-select').value;
     const postTitleContent = titleInput.value.trim();
     const postTitleCharLimit = 50;
 
@@ -19,8 +21,10 @@ const newPostFormHandler = async (event) => {
 
     const formData = new FormData();
     formData.append('title', title);
+    formData.append('price', price);
     formData.append('content', content);
     formData.append('image', image);
+    formData.append('category', category);
 
     try {
         const response = await fetch('/api/posts', {
@@ -29,8 +33,6 @@ const newPostFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            const responseData = await response.json();
-            const imageUrl = responseData.imageUrl;
             document.location.replace('/dashboard');
         }
     } catch (err) {
@@ -38,17 +40,4 @@ const newPostFormHandler = async (event) => {
     }
 };
 
-document.querySelector('.new-post-form').addEventListener('submit', newPostFormHandler)
-
-// Hide "create new post" container until user clicks on the "New Post" button
-document.addEventListener('DOMContentLoaded', () => {
-    const newPostBtn = document.getElementById('newPostBtn');
-    const formAdjustCreate = document.getElementById('form-adjust-create');
-
-    if (newPostBtn && formAdjustCreate) {
-        newPostBtn.addEventListener('click', (event) => {
-            event.preventDefault();
-            formAdjustCreate.classList.toggle('hidden');
-        });
-    }
-});
+document.querySelector('.new-post-form').addEventListener('submit', newPostFormHandler);
