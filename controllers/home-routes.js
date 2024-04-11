@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Post, User, Category, Product, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const cloudinary = require('cloudinary');
 
 
 // Home Route
@@ -22,7 +23,6 @@ router.get('/', async (req, res) => {
             ]
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        console.log(posts);
 
         res.render('home', {
             posts,
@@ -35,7 +35,6 @@ router.get('/', async (req, res) => {
 
 // Single Post Route
 router.get('/posts/:id', withAuth, async (req, res) => {
-    console.log('req.params.id:', req.params.id);
     const postData = await Post.findByPk(req.params.id, {
         include: [
           {
@@ -49,7 +48,6 @@ router.get('/posts/:id', withAuth, async (req, res) => {
       });
 
       const post = postData.get({ plain: true });
-      console.log('post', post);
       res.render("post", {
         post,
         logged_in: req.session.logged_in
@@ -74,6 +72,20 @@ router.get('/dashboard', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+// Route to get associated post images from the cloud
+router.get('/upload_signature', (req, res) => {
+    const timestamp = Math.round((new Date()).getTime() / 1000);
+    const signature = cloudinary.utils.api_sign_request({
+        timestamp: timestamp
+    }, process.env.CLOUDINARY_API_SECRET);
+
+    res.json({ 
+        signature,
+        timestamp,
+        cloud_name: process.env.CLOUDINARY_CLOUD_NAME
+    });
 });
 
 // Login Route
