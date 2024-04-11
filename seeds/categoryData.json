@@ -1,17 +1,22 @@
 [
     {
+      "id": 1,
       "category_name": "Guitars"
     },
     {
+      "id": 2,
       "category_name": "Bass Guitars"
     },
     {
+      "id": 3,
       "category_name": "Drums"
     },
     {
+      "id": 4,
       "category_name": "Keyboards"
     },
     {
+      "id": 5,
       "category_name": "Amps and Effects"
     }
 ]
