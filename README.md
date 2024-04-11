@@ -1,11 +1,13 @@
 # Melody Exchange
 
 ## Overview
-   * As a user, you will be able to sign up for an account on our website, "Melody Exchange", and be able to create posts to sell your instrument.
+   - As a user, you will be able to sign up for an account on our website, "Melody Exchange", and create posts to sell your instrument.
 
-1. Responsive Design
+## Features
 
-   * Our group designed this webpage to be fully responsive from small mobile devices, to tablets, to the largest desktops to provide a consistent means to view our website "Melody Exchange" in an enjoyable and engaging experience.
+1. Category Dropdown
+
+   * Our group implemented a dropdown with all the different categories allowed in our website. This allows for easier access to a specific post with a specific category.
 
 2. Clean UI design
 
@@ -17,42 +19,47 @@
 
 4. Create post Form
 
-    * Our create post form allows users to create a post and have the option to add a title, price, instrument category, extra post text, and ability to add image.
+    * Our create post form allows users to create a post and have the option to add a title, price, instrument category, extra post text, and also the ability to add and image.
 
 5. Add image functionality
 
     * By implementing the Multer package, we were able to add the option for the user to add an image of their own!
 
+6. Comment functionality
 
-6. Technologies Used
+    * Our group implemented the option for signed up users to create a comment underneath each post.
+
+7. Technologies Used
 
     * Node
     * Bootswatch
     * Handelbars
     * Javascript
+    * SQL
     * Sequelize
     * NPM package- Multer
 
 ## Usage
-To view this webpage, please visit ...
+To view this webpage, please visit [INSERT HEROKU LINK!!!!!!]
 
-To view this project's repository, please visit https://github.com/plucafo/ecommerce-project
+To view this project's repository, please visit https://github.com/plucafo/melody-exchange
 
-When viewed from a desktop, the webpage should resemble the following image:
+When viewing the homepage, the webpage should resemble the following image:
 
-![Desktop View](./assets/desktop-view.png)
+![Dashboard View](./assets/imgs/melody-exchange-dash.png)
 
-When viewed from a tablet, the webpage should resemble the following image:
+When viewed from the dashboard page, the webpage should resemble the following image:
 
-![Tablet View](./assets/tablet-view.png)
+![Homepage View](./assets/imgs/meolody-exchange-home.png)
 
-When viewed from a mobile device, the webpage should resemble the following image:
+## ERD Model
+The image below is the ERD diagram that represents the models and asociations we used for this project
 
-![Mobile View](./assets/mobile%20view.png)
+![ERD Model](./assets)
 
 ## Credits
 
-Links to resource references used as follows:
+Links to resources used as follows:
 
 Bootstwatch: https://bootswatch.com/
 
