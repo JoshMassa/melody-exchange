@@ -1,10 +1,11 @@
-{{! category cards }}
+{{!-- Category Cards --}}
 <div class="row">
     <div>
       <h2 class="text-center mt-5 mb-5">You're searching for <span class="text-success">{{categoryName}}</span></h2>
     </div>
 </div>
 
+{{!-- Guitars Category --}}
 {{#each guitarsPosts as |guitarPost|}}
   <div class="d-flex justify-content-center col-12">
     <div class='container w-50 card mb-3 mt-3'>
@@ -71,6 +72,7 @@
 </div>
 {{/each}}
 
+{{!-- Bass Guitars Category --}}
 {{#each bassGuitarsPosts as |bassGuitarPost|}}
   <div class="d-flex justify-content-center col-12">
     <div class='container w-50 card mb-3 mt-3'>
@@ -137,6 +139,7 @@
 </div>
 {{/each}}
 
+{{!-- Drums Category --}}
 {{#each drumsPosts as |drumPost|}}
 <div class="d-flex justify-content-center col-12">
     <div class='container w-50 card mb-3 mt-3'>
@@ -203,6 +206,7 @@
 </div>
 {{/each}}
 
+{{!-- Keyboards Category --}}
 {{#each keyboardsPosts as |keyboardPost|}}
   <div class="d-flex justify-content-center col-12">
     <div class='container w-50 card mb-3 mt-3'>
@@ -269,6 +273,7 @@
 </div>
 {{/each}}
 
+{{!-- Amps and Effects Category --}}
 {{#each ampsAndEffectsPosts}}
  <div class="d-flex justify-content-center col-12">
     <div class='container w-50 card mb-3 mt-3'>

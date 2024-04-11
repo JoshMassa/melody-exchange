@@ -56,6 +56,7 @@ router.get('/posts/:id', withAuth, async (req, res) => {
       });
 });
 
+// Route to users dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
@@ -80,7 +81,7 @@ router.get('/login', async (req, res) => {
     res.render("login");
 })
 
-// Login Route
+// Signup Route
 router.get('/signup', async (req, res) => {
     res.render("signup");
 })
