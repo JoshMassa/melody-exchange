@@ -9,6 +9,7 @@ const newPostFormHandler = async (event) => {
     const category = document.querySelector('#category-select').value;
     const postTitleContent = titleInput.value.trim();
     const postTitleCharLimit = 50;
+    const cloudName = 'dgdoaiyz6';
 
     if (!postTitleContent) {
         alert('Error: Title cannot be empty.');
@@ -17,26 +18,54 @@ const newPostFormHandler = async (event) => {
 
     if (postTitleContent.length > postTitleCharLimit) {
         alert('Error: Title cannot exceed ' + postTitleCharLimit + ' characters.');
+        return;
     }
 
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('price', price);
-    formData.append('content', content);
-    formData.append('image', image);
-    formData.append('category', category);
+    if (!image) {
+        alert('Please select an image file to upload.');
+        return;
+    }
 
     try {
-        const response = await fetch('/api/posts', {
+        const formData = new FormData();
+        formData.append('file', image);
+        formData.append('upload_preset', 'ml_default');
+
+        const cloudinaryResponse = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
             method: 'POST',
-            body: formData,
+            body: formData
+        });
+    
+        if(!cloudinaryResponse.ok) {
+            throw new Error('Failed to upload image to Cloudinary.');
+        }
+
+        const imageData = await cloudinaryResponse.json();
+        const imageUrl = imageData.secure_url;
+
+        const postResponse = await fetch('/api/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title,
+                price,
+                content,
+                category,
+                imageUrl
+            }),
         });
 
-        if (response.ok) {
+        if (postResponse.ok) {
             document.location.replace('/dashboard');
+        } else {
+            const errorData = await postResponse.json();
+            throw new Error(errorData.message || 'Failed to create post.');
         }
     } catch (err) {
-        console.error(err);
+        console.error('Error:', err);
+        alert('Something went wrong. Please try again.');
     }
 };
 

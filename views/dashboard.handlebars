@@ -73,7 +73,11 @@
             <h3 id="newPostHeader" class="text-center">Create New Post:</h3>
             <div id="form-adjust-create" class="container hidden">
                 <div class="col">
-                    <form class="form new-post-form" action="/dashboard" method="POST" enctype="multipart/form-data">
+                    {{!-- New Post Form --}}
+                    <form class="form new-post-form" action="/api/posts" id="uploadForm" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="api_key" value="your_api_key" />
+                        <input type="hidden" name="timestamp" id="timestamp" />
+                        <input type="hidden" name="signature" id="signature" />
                         <div>
                             <label for="post-title" class="form-label mt-4">Title:</label>
                             <input type="text" class="form-control" id="post-title" placeholder="Instrument Type">
