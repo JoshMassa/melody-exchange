@@ -61,45 +61,31 @@
         {{format_time post.createdAt}}
       </div>
 
-            <div id='form-adjust' class="container">
+{{!-- comment cards --}}
+<div id='form-adjust' class="container">
   <div class="row">
-      <h2 id="commentHeader" class="text-center text-info">Recent comments:</h2>
-      <div class="comments">
-        {{#each post.comments}}
-        <div class="comment text-center border m-2">
-            <p class="text-body-secondary">{{content}}</p>
+    <h2 id="commentHeader" class="text-center text-info">Recent comments:</h2>
+    <div class="comments">
+      {{#each post.comments}}
+      <div class="card border m-2">
+        <div class="card-body">
+          <p class="card-text">{{content}}</p>
         </div>
-        {{/each}}
+        <div class="card-footer text-muted text-right">
+          <small>
+            Posted by {{user.name}} on {{format_date createdAt}} at {{format_time createdAt}}
+          </small>
+        </div>
       </div>
-  </div>
-  
-  {{!-- I wanted to add a comment footer below --}}
-  {{!-- <div class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'>
-        Posted by
-        {{post.user.comment}}
-        on
-        {{format_date comment.createdAt}}
-        at
-        {{format_time comment.createdAt}}
-      </div> --}}
-</div>
-
+      {{/each}}
     </div>
+  </div>
+</div>
+  
+</div>
 </div>
 
-{{!-- <div id='form-adjust' class="container">
-  <div class="row">
-      <h2 id="commentHeader" class="text-center">Comment:</h2>
-      <div class="comments">
-        {{#each post.comments}}
-        <div class="comment text-center">
-            <p>{{content}}</p>
-        </div>
-        {{/each}}
-      </div>
-  </div>
-</div> --}}
-
+{{!-- add comment form --}}
 <div class="container d-flex justify-content-center">
 <div class="comment-form-container">   
     <form class="form comment-form" id="comment-form" style="display: none">

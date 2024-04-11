@@ -48,7 +48,10 @@ router.delete('/:id', withAuth, async (req, res) => {
 router.get('/:id/comments', async (req, res) => {
     try {
         const postId = req.params.id;
-        const comments = await Comment.findAll({ where: { post_id: postId } });
+        const comments = await Comment.findAll({
+             where: { post_id: postId },
+            include: { model: User } 
+        });
         res.status(200).json(comments);
     } catch (err) {
         res.status(500).json(err);
