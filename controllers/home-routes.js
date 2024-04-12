@@ -24,10 +24,11 @@ router.get('/', async (req, res) => {
             ],
             order: [['createdAt', 'DESC']]
         });
-
+        
         const posts = postData.map(post => post.get({ plain: true }));
         const totalPages = Math.ceil(count / limit);
-
+        const greaterThanTenPosts = count >= 10;
+        
         res.render('home', {
             posts,
             totalPages,
@@ -37,7 +38,8 @@ router.get('/', async (req, res) => {
                 page,
                 limit,
                 totalRows: count
-            }
+            },
+            greaterThanTenPosts
         });
     } catch (err) {
         res.status(500).json(err);
@@ -92,6 +94,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
             where: { user_id: req.session.user_id }
         });
         const totalPages = Math.ceil(totalPostsCount / limit);
+        const greaterThanTenPosts = totalPostsCount >= 10;
 
         res.render('dashboard', {
             id: user.id,
@@ -100,6 +103,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
             currentPage: page,
             totalPages,
             logged_in: true,
+            greaterThanTenPosts,
             pagination: {
                 page,
                 limit,
