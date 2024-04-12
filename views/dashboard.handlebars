@@ -66,6 +66,21 @@
                         <button type="button" class="btn btn-link text-success text-decoration-none delete-btn" data-id="{{id}}">Delete Post</button>
                     </div>
                 {{/each}}
+                <div class="container d-flex justify-content-center align-items-center">
+                    <nav>
+                    <ul class="pagination custom-pagination">
+                        <li class="page-item">
+                        <a class="page-link" href="?page={{decrement currentPage}}">Previous</a>
+                        </li>
+                        {{{paginateHelper pagination}}}
+                {{#if greaterThanTenPosts}}
+                        <li class="page-item">
+                        <a class="page-link" href="?page={{increment currentPage}}">Next</a>
+                        </li>
+                {{/if}}
+                    </ul>
+                    </nav>
+                </div>
             </div>
         </div>
         {{!-- Create new post form --}}

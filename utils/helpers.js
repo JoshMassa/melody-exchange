@@ -12,4 +12,25 @@ function format_time(timestamp) {
     return date.toLocaleTimeString('en-US');
 };
 
-module.exports = { format_date, format_time };
+function increment(value) {
+    return parseInt(value) + 1;
+}
+
+function decrement(value) {
+    return parseInt(value) - 1;
+}
+
+function pagination(totalPages, currentPage) {
+    var pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pages.push({
+            page: i,
+            isCurrent: i === parseInt(currentPage)
+        });
+    }
+    return pages;
+}
+
+
+
+module.exports = { format_date, format_time, increment, decrement, pagination };
