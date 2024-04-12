@@ -73,9 +73,11 @@
                         <a class="page-link" href="?page={{decrement currentPage}}">Previous</a>
                         </li>
                         {{{paginateHelper pagination}}}
+                {{#if greaterThanTenPosts}}
                         <li class="page-item">
                         <a class="page-link" href="?page={{increment currentPage}}">Next</a>
                         </li>
+                {{/if}}
                     </ul>
                     </nav>
                 </div>
