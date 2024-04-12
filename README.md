@@ -23,7 +23,7 @@
 
 5. Add image functionality
 
-    * By implementing the Multer package, we were able to add the option for the user to add an image of their own!
+    * By implementing the Cloudinary package, we were able to add the option for the user to add an image of their own!
 
 6. Comment functionality
 
@@ -37,10 +37,10 @@
     * Javascript
     * SQL
     * Sequelize
-    * NPM package- Multer
+    * NPM package- Cloudinary
 
 ## Usage
-To view this webpage, please visit [INSERT HEROKU LINK!!!!!!]
+To view this webpage, please visit https://melody-exchange-206a7ddfc868.herokuapp.com/
 
 To view this project's repository, please visit https://github.com/plucafo/melody-exchange
 
@@ -55,7 +55,7 @@ When viewed from the dashboard page, the webpage should resemble the following i
 ## ERD Model
 The image below is the ERD diagram that represents the models and asociations we used for this project
 
-![ERD Model](./assets)
+![ERD Model](./assets/imgs/erd-melody-exchange.png)
 
 ## Credits
 
