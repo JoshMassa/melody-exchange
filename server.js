@@ -6,6 +6,9 @@ const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 const helpers = require("./utils/helpers");
 const cloudinary = require('cloudinary').v2;
+const paginateHelper = require('express-handlebars-paginate');
+
+
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -13,8 +16,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
   secure: true
 });
-
-console.log('cloudinary config', cloudinary.config());
 
 const uploadImage = async (imagePath) => {
 
@@ -29,7 +30,6 @@ const uploadImage = async (imagePath) => {
   try {
     // Upload the image
     const result = await cloudinary.uploader.upload(imagePath, options);
-    console.log(result);
     return result.public_id;
   } catch (error) {
     console.error(error);
@@ -46,7 +46,6 @@ const getAssetInfo = async (publicId) => {
   try {
       // Get details about the asset
       const result = await cloudinary.api.resource(publicId, options);
-      console.log(result);
       return result.colors;
       } catch (error) {
       console.error(error);
@@ -84,10 +83,6 @@ const createImageTag = (publicId, ...colors) => {
 
   // Create an image tag, using two of the colors in a transformation
   const imageTag = await createImageTag(publicId, colors[0][0], colors[1][0]);
-
-  // Log the image tag to the console
-  console.log(imageTag);
-
 })();
 
 // sequelize and SequelizeStore dependencies
@@ -100,6 +95,7 @@ const PORT = process.env.PORT || 3001;
 
 // needs descriptive comment
 const hbs = exphbs.create({helpers});
+hbs.handlebars.registerHelper('paginateHelper', paginateHelper.createPagination);
 
 // create session object for user auth
 const sess = {

@@ -6,27 +6,38 @@ const cloudinary = require('cloudinary');
 
 // Home Route
 router.get('/', async (req, res) => {
+    const page = parseInt(req.query.page)  || 1;
+    const limit = 10;
+    const offset = (page - 1) * limit;
     try {
-        const postData = await Post.findAll({
+        const { count, rows: postData } = await Post.findAndCountAll({
+            limit,
+            offset,
             include: [
                 {
                     model: User
                 },
                 {
                     model: Product,
-                    include: [
-                        {
-                            model: Category
-                        }
-                    ]
+                    include: [Category]
                 }
-            ]
+            ],
+            order: [['createdAt', 'DESC']]
         });
-        const posts = postData.map((post) => post.get({ plain: true }));
+
+        const posts = postData.map(post => post.get({ plain: true }));
+        const totalPages = Math.ceil(count / limit);
 
         res.render('home', {
             posts,
-            logged_in: req.session.logged_in
+            totalPages,
+            currentPage: page,
+            logged_in: req.session.logged_in,
+            pagination: {
+                page,
+                limit,
+                totalRows: count
+            }
         });
     } catch (err) {
         res.status(500).json(err);
@@ -56,18 +67,44 @@ router.get('/posts/:id', withAuth, async (req, res) => {
 
 // Route to users dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10;
+    const offset = (page - 1) * limit;
+
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: Post }],
+            include: [{
+                model: Post,
+                limit,
+                offset,
+                order: [['createdAt', 'DESC']]                
+            }],
         });
 
+        if (!userData) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
         const user = userData.get({ plain: true });
+
+        const totalPostsCount = await Post.count({
+            where: { user_id: req.session.user_id }
+        });
+        const totalPages = Math.ceil(totalPostsCount / limit);
+
         res.render('dashboard', {
             id: user.id,
             name: user.name,
             posts: user.posts,
+            currentPage: page,
+            totalPages,
             logged_in: true,
+            pagination: {
+                page,
+                limit,
+                totalRows: totalPostsCount
+            }
         });
     } catch (err) {
         res.status(500).json(err);
