@@ -1,3 +1,4 @@
 node_modules
 .DS_Store
 .env
+estore_db_backup.sql
