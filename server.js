@@ -82,7 +82,6 @@ const createImageTag = (publicId, ...colors) => {
 
 // sequelize and SequelizeStore dependencies
 const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // set up the express app
 const app = express();
