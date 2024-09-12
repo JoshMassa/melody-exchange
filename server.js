@@ -1,25 +1,22 @@
 // dependencies
-const express = require("express");
-const session = require("express-session");
-const path = require("path");
-const exphbs = require("express-handlebars");
-const routes = require("./controllers");
-const helpers = require("./utils/helpers");
+const express = require('express');
+const session = require('express-session');
+const path = require('path');
+const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 const cloudinary = require('cloudinary').v2;
 const paginateHelper = require('express-handlebars-paginate');
-
-
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
-  secure: true
+  secure: true,
 });
 
 const uploadImage = async (imagePath) => {
-
-  // Use the uploaded file's name as the asset's public ID and 
+  // Use the uploaded file's name as the asset's public ID and
   // allow overwriting the asset with new versions
   const options = {
     use_filename: true,
@@ -37,23 +34,21 @@ const uploadImage = async (imagePath) => {
 };
 
 const getAssetInfo = async (publicId) => {
-
   // Return colors in the response
   const options = {
     colors: true,
   };
 
   try {
-      // Get details about the asset
-      const result = await cloudinary.api.resource(publicId, options);
-      return result.colors;
-      } catch (error) {
-      console.error(error);
+    // Get details about the asset
+    const result = await cloudinary.api.resource(publicId, options);
+    return result.colors;
+  } catch (error) {
+    console.error(error);
   }
 };
 
 const createImageTag = (publicId, ...colors) => {
-    
   // Set the effect color and background color
   const [effectColor, backgroundColor] = colors;
 
@@ -71,9 +66,9 @@ const createImageTag = (publicId, ...colors) => {
 };
 
 (async () => {
-
   // Set the image to upload
-  const imagePath = 'https://cloudinary-devs.github.io/cld-docs-assets/assets/images/happy_people.jpg';
+  const imagePath =
+    'https://cloudinary-devs.github.io/cld-docs-assets/assets/images/happy_people.jpg';
 
   // Upload the image
   const publicId = await uploadImage(imagePath);
@@ -86,25 +81,28 @@ const createImageTag = (publicId, ...colors) => {
 })();
 
 // sequelize and SequelizeStore dependencies
-const sequelize = require("./config/connection");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // set up the express app
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // needs descriptive comment
-const hbs = exphbs.create({helpers});
-hbs.handlebars.registerHelper('paginateHelper', paginateHelper.createPagination);
+const hbs = exphbs.create({ helpers });
+hbs.handlebars.registerHelper(
+  'paginateHelper',
+  paginateHelper.createPagination
+);
 
 // create session object for user auth
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {
-    maxAge: 1800000,
+    maxAge: 5000000,
     httpOnly: true,
     secure: false,
-    sameSite: "strict",
+    sameSite: 'strict',
   },
   resave: false,
   saveUninitialized: true,
@@ -117,7 +115,7 @@ app.use(session(sess));
 
 // set handlebars as the templating engine
 app.engine('handlebars', hbs.engine);
-app.set("view engine", "handlebars");
+app.set('view engine', 'handlebars');
 
 // middleware to parse json post/put requests so they are available in the req.body
 app.use(express.json());
@@ -126,7 +124,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // middleware to look for static files in the public folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // look in the controllers folder for routes
 app.use(routes);

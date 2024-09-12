@@ -3,26 +3,26 @@
   justify-content: center;
   list-style: none;
   padding: 0;
- }
- 
- .custom-pagination li {
+}
+
+.custom-pagination li {
   margin: 0 5px;
- }
- 
- .custom-pagination li a {
+}
+
+.custom-pagination li a {
   padding: 5px 10px;
   border: 1px solid #ddd;
   text-decoration: none;
- }
- 
- .custom-pagination li.active a {
+}
+
+.custom-pagination li.active a {
   background-color: rgb(37, 99, 88);
   color: white;
- }
- 
- .disabled {
+}
+
+.disabled {
   display: none;
- }
+}
 
 .pagination-sm li:first-of-type,
 .pagination-sm li:nth-of-type(4) {
@@ -32,4 +32,9 @@
 .pagination-sm li:nth-of-type(2),
 .pagination-sm li:nth-of-type(3) {
   margin-top: 6px;
+}
+
+.padding-override {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }

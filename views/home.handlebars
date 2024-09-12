@@ -1,102 +1,116 @@
-<div class='row'>
-  <div>
-    <h2 id='name' class='mt-5 mb-5 text-center'>Welcome to
-      <span class='text-success'>Melody Exchange</span>!</h2>
+<div class='container'>
+  <div class='row'>
+    <div class='col-12'>
+      <h2 id='name' class='mt-5 mb-5 text-center'>Welcome to
+        <span class='text-success'>Melody Exchange</span>!</h2>
+    </div>
   </div>
-</div>
 
-{{! post card }}
-{{#each posts as |post|}}
-  <div class='d-flex justify-content-center col-12'>
-    {{! <section> }}
-    <div class='container w-50 card mb-3 mt-3'>
-      <h3
-        class='card-header text-success mt-2 d-flex justify-content-center'
-      >Instrument for sale!</h3>
-      <div class='card-body pb-0'>
-        <h5 class='card-title text-center'><a
-            href='/posts/{{post.id}}'
-            class='post-link text-dark-emphasis fs-2 d-flex justify-content-center'
-          >{{post.title}}</a>
-        </h5>
-        <div class='card-price mb-3 d-flex justify-content-center'>
-          <span
-            class='badge mt-2 bg-success w-25 py-3 fs-6'
-          >${{post.price}}</span>
+  <div class='row justify-content-center'>
+    {{#each posts as |post|}}
+      <div class='col-md-4 mb-3'>
+        <div class='card h-100'>
+          <h3 class='card-header text-success d-flex justify-content-center'>
+            Instrument for sale!
+          </h3>
+          <div class='card-body pb-0'>
+            <h5 class='card-title text-center'>
+              <a
+                href='/posts/{{post.id}}'
+                class='post-link text-dark-emphasis fs-2 d-flex justify-content-center'
+              >
+                {{post.title}}
+              </a>
+            </h5>
+            <div class='card-price mb-3 d-flex justify-content-center'>
+              <span
+                class='badge mt-2 bg-success w-25 py-3 fs-6'
+              >${{post.price}}</span>
+            </div>
+          </div>
+          {{#if post.image}}
+            <div class='d-flex flex-grow-1'>
+              <div class='mx-auto'>
+                <img
+                  src='{{post.image}}'
+                  class='card-img-top mx-auto'
+                  alt='Product Image'
+                  style='width: 250px;'
+                />
+              </div>
+            </div>
+          {{else}}
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              class='d-block user-select-none ms-4'
+              width='100%'
+              height='100%'
+              aria-label='Placeholder: Image cap'
+              focusable='false'
+              role='img'
+              preserveAspectRatio='xMidYMid slice'
+              viewBox='0 0 318 180'
+              style='font-size:1.125rem;text-anchor:middle'
+            >
+              <rect
+                y='18'
+                x='5'
+                rx='8'
+                ry='8'
+                width='90%'
+                height='90%'
+                fill='#868e96'
+              ></rect>
+              <text
+                x='46%'
+                y='53%'
+                text-anchor='middle'
+                fill='#dee2e6'
+                dy='.3em'
+              >Product Image</text>
+            </svg>
+          {{/if}}
+          <div class='d-flex mt-4 mb-3 border-top border-bottom px-2 py-2'>
+            <p class='card-subtitle text-muted'>{{post.content}}</p>
+          </div>
+          <div class='card-options mb-2 d-flex justify-content-center'>
+            <a href='#' class='card-link text-info text-decoration-none'>Buy now</a>
+            <a
+              href='/posts/{{post.id}}'
+              class='card-link text-info text-decoration-none'
+            >View Post</a>
+          </div>
+          <div
+            class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'
+          >
+            Posted by
+            {{post.user.name}}
+            on
+            {{format_date post.createdAt}}
+            at
+            {{format_time post.createdAt}}
+          </div>
         </div>
       </div>
-      {{! <div> }}
-      {{#if post.image}}
-        <img src='{{post.image}}' class='card-img-top' alt='Product Image' />
-      {{else}}
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          class='d-block user-select-none ms-4'
-          width='100%'
-          height='100%'
-          aria-label='Placeholder: Image cap'
-          focusable='false'
-          role='img'
-          preserveAspectRatio='xMidYMid slice'
-          viewBox='0 0 318 180'
-          style='font-size:1.125rem;text-anchor:middle'
-        >
-          <rect
-            y='18'
-            x='5'
-            rx='8'
-            ry='8'
-            width='90%'
-            height='90%'
-            fill='#868e96'
-          ></rect>
-          <text
-            x='46%'
-            y='53%'
-            text-anchor='middle'
-            fill='#dee2e6'
-            dy='.3em'
-          >Product Image</text>
-        </svg>
-      {{/if}}
-      {{! </div> }}
-      <div class='d-flex mt-4 mb-3 border-top border-bottom px-2 py-2'>
-        <p class='card-subtitle text-muted'>{{post.content}}</p>
-      </div>
-      <div class='card-options mb-2 d-flex justify-content-center'>
-        <a href='#' class='card-link text-info text-decoration-none'>Buy now</a>
-        <a
-          href='/posts/{{post.id}}'
-          class='card-link text-info text-decoration-none'
-        >View Post</a>
-      </div>
-      <div
-        class='card-footer text-body-tertiary pb-2 d-flex justify-content-center'
-      >
-        Posted by
-        {{post.user.name}}
-        on
-        {{format_date post.createdAt}}
-        at
-        {{format_time post.createdAt}}
-      </div>
-    </div>
-    {{! </section> }}
+    {{/each}}
   </div>
-{{/each}}
 
-<div class='container d-flex justify-content-center align-items-center'>
-  <nav>
-    <ul class='pagination custom-pagination'>
-      <li class='page-item'>
-        <a class='page-link' href='?page={{decrement currentPage}}'>Previous</a>
-      </li>
-      {{{paginateHelper pagination}}}
-      {{#if greaterThanTenPosts}}
+  <div class='container d-flex justify-content-center align-items-center'>
+    <nav>
+      <ul class='pagination custom-pagination'>
         <li class='page-item'>
-          <a class='page-link' href='?page={{increment currentPage}}'>Next</a>
+          <a
+            class='page-link'
+            href='?page={{decrement currentPage}}'
+          >Previous</a>
         </li>
-      {{/if}}
-    </ul>
-  </nav>
+        {{{paginateHelper pagination}}}
+        {{#if greaterThanTenPosts}}
+          <li class='page-item'>
+            <a class='page-link' href='?page={{increment currentPage}}'>Next</a>
+          </li>
+        {{/if}}
+      </ul>
+    </nav>
+  </div>
 </div>
