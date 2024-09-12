@@ -125,14 +125,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // middleware for session creation
 app.use(session(sess));
 
-app.use((req, res, next) => {
-  console.log(
-    '===================================================================================================================================================================Session Cookie Config:',
-    req.session.cookie
-  );
-  next();
-});
-
 // look in the controllers folder for routes
 app.use(routes);
 
