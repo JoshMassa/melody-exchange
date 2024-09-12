@@ -20,7 +20,7 @@
           </h3>
           <div
             class='card-header text-body-tertiary justify-content-center text-center'
-            style='height: 75px; align-content: center; font-size: 14px;'
+            style='height: 50px; align-content: center; font-size: 14px;'
           >
             Posted by
             {{post.user.name}}
@@ -29,11 +29,11 @@
             at
             {{format_time post.createdAt}}
           </div>
-          <div class='card-body pb-0'>
+          <div class='pb-0'>
             <h5 class='card-title text-center'>
               <a
                 href='/posts/{{post.id}}'
-                class='post-link text-success fs-4 d-flex justify-content-center text-decoration-none text-shadow'
+                class='post-link text-success fs-4 d-flex justify-content-center text-decoration-none text-shadow mt-2'
               >
                 {{post.title}}
               </a>
@@ -45,15 +45,16 @@
             </div>
           </div>
           {{#if post.image}}
-            <div class='d-flex flex-grow-1'>
-              <div class='mx-auto'>
-                <img
-                  src='{{post.image}}'
-                  class='card-img-top mx-auto'
-                  alt='Product Image'
-                  style='width: 250px; border-radius: 10px'
-                />
-              </div>
+            <div
+              class='mx-auto flex-grow-1'
+              style='display: flex; max-width: 75%; align-items: center;'
+            >
+              <img
+                src='{{post.image}}'
+                class='mx-auto'
+                alt='Product Image'
+                style='display: block; max-width: 100%; max-height: 100%; border-radius: 10px;'
+              />
             </div>
           {{else}}
             <svg
@@ -112,10 +113,6 @@
     <nav>
       <ul class='pagination custom-pagination'>
         <li class='page-item'>
-          <a
-            class='page-link'
-            href='?page={{decrement currentPage}}'
-          >Previous</a>
         </li>
         {{{paginateHelper pagination}}}
         {{#if greaterThanTenPosts}}

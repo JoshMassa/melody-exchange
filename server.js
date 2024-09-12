@@ -98,7 +98,7 @@ hbs.handlebars.registerHelper(
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {
-    maxAge: 300000,
+    maxAge: 900000,
     httpOnly: true,
     secure: false,
     sameSite: 'Strict',
