@@ -95,7 +95,7 @@
       {{!-- comment cards --}}
     <div id='form-adjust' class="container">
       <div class="row">
-        <h2 id="commentHeader" class="text-center fs-5 py-2">Recent comments:</h2>
+        <h5 id="commentHeader" class="text-center py-2">Recent comments:</h5>
         <div class="comments">
           {{#each post.comments}}
           <div class="card border m-2 box-shadow" style="border-radius: 10px">
@@ -121,9 +121,9 @@
 <div class="comment-form-container">   
     <form class="form comment-form" id="comment-form" style="display: none">
         <div class="form-group">
-            <h2 id="commentFormHeader">
-              <label for="comment" class="form-label mt-5 text-success fs-5 d-flex justify-content-center">Add Comment:</label>
-            </h2>
+            <h5 id="commentFormHeader">
+              <label for="comment" class="form-label mt-5 text-success d-flex justify-content-center">Add Comment:</label>
+            </h5>
             <div>
       <textarea class="form-control" id="comment" type="text" rows="3"></textarea>
         <div class="form-group mt-3 d-flex justify-content-center">
