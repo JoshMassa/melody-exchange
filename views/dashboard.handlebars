@@ -72,9 +72,9 @@
   <span id='yourPosts' class='d-flex justify-content-center mt-4 fs-3'>Your Posts:</span>
   <div class='row'>
     {{#each posts as |post|}}
-      <div class='col-md-4 mb-3'>
+      <div class='col-lg-4 col-md-6 mb-3'>
         <div class='card h-100' style='background-color: rgba(172, 165, 158, 0.397);'>
-          <div class='card-header text-body-tertiary d-flex justify-content-center align-items-center' style='height: 50px; font-size: 14px;'>
+          <div class='card-header text-body-tertiary d-flex justify-content-center align-items-center text-center' style='height: 50px; font-size: 14px;'>
             Posted by you on
             {{format_date post.createdAt}}
             at
