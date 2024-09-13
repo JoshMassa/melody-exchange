@@ -1,17 +1,17 @@
 {{! Welcome message }}
 <div class='row mt-2'>
   <div>
-    <h2 id='name' class='mt-4 text-center'>
+    <h1 id='name' class='mt-4 text-center fs-2'>
       <span class='border border-3 rounded-pill p-3'>Welcome,
         <span class='text-success'>{{name}}!</span>
       </span>
-    </h2>
+    </h1>
   </div>
 </div>
 
 {{! Create new post form }}
 <div class='col-6 mx-auto' style='display: flex; flex-direction: column; width: 20rem;'>
-  <h3 id='newPostHeader' class='text-center mt-4'>Create New Post:</h3>
+  <span id='newPostHeader' class='text-center mt-4 fs-3'>Create New Post:</span>
   <div id='form-adjust-create' class='container hidden'>
     <div class='col'>
       {{! New Post Form }}
@@ -69,7 +69,7 @@
 
 {{! Users posts }}
 <div class='container mt-2'>
-  <h3 id='yourPosts' class='d-flex justify-content-center mt-4'>Your Posts:</h3>
+  <span id='yourPosts' class='d-flex justify-content-center mt-4 fs-3'>Your Posts:</span>
   <div class='row'>
     {{#each posts as |post|}}
       <div class='col-md-4 mb-3'>
@@ -80,11 +80,11 @@
             at
             {{format_time post.createdAt}}
           </div>
-          <h5 class='card-title text-center mt-3'>
+          <span class='card-title text-center mt-3'>
             <a href='/posts/{{post.id}}' class='post-link text-success fs-4 text-decoration-none'>
               {{post.title}}
             </a>
-          </h5>
+          </span>
           <div class='card-price mb-3 d-flex justify-content-center'>
             <span class='badge mt-2 bg-success w-25 py-3 fs-6'>${{post.price}}</span>
           </div>
