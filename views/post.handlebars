@@ -87,35 +87,32 @@
               class='card-subtitle text-muted mx-auto text-center'
             >{{post.content}}</p>
           </div>
-      <div class='card-options mb-2 d-flex justify-content-center'>
-        <a href='#' class='card-link text-decoration-none'>Buy now</a>
-        <a href='#' id="comment-link" class='card-link text-decoration-none'>Comment</a>
-      </div>
+          <div class='card-options mb-2 d-flex justify-content-center'>
+            <a href='#' class='card-link text-decoration-none'>Buy now</a>
+            <a href='#' id="comment-link" class='card-link text-decoration-none'>Comment</a>
+          </div>      
 
-      
-
-{{!-- comment cards --}}
-<div id='form-adjust' class="container">
-  <div class="row">
-    <h2 id="commentHeader" class="text-center fs-5 py-2">Recent comments:</h2>
-    <div class="comments">
-      {{#each post.comments}}
-      <div class="card border m-2 box-shadow" style="border-radius: 10px">
-        <div class="card-footer text-muted text-right text-bg-success" style="border-radius: 10px 10px 0px 0px;">
-          <small style="color: white">
-            Posted by {{user.name}} on {{format_date createdAt}} at {{format_time createdAt}}
-          </small>
-        </div>
-        <div class="card-body">
-          <p class="card-text">{{content}}</p>
+      {{!-- comment cards --}}
+    <div id='form-adjust' class="container">
+      <div class="row">
+        <h2 id="commentHeader" class="text-center fs-5 py-2">Recent comments:</h2>
+        <div class="comments">
+          {{#each post.comments}}
+          <div class="card border m-2 box-shadow" style="border-radius: 10px">
+            <div class="card-footer text-muted text-right text-bg-success" style="border-radius: 10px 10px 0px 0px;">
+              <small style="color: white">
+                Posted by {{user.name}} on {{format_date createdAt}} at {{format_time createdAt}}
+              </small>
+            </div>
+            <div class="card-body">
+              <p class="card-text">{{content}}</p>
+            </div>
+          </div>
+          {{/each}}
+          </div>
         </div>
       </div>
-      {{/each}}
     </div>
-  </div>
-</div>
-  
-</div>
   </div>
 </div>
 

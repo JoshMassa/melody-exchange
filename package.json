@@ -28,10 +28,11 @@
     "sequelize": "^6.37.1"
   },
   "devDependencies": {
-    "eslint": "^7.12.1",
+    "eslint": "^9.10.0",
     "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "nodemon": "^3.1.0",
-    "prettier": "^2.1.2",
+    "prettier": "^3.3.3",
     "sequelize-cli": "^6.6.2"
   }
 }

@@ -91,7 +91,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 hbs.handlebars.registerHelper(
   'paginateHelper',
-  paginateHelper.createPagination
+  paginateHelper.createPagination,
 );
 
 // create session object for user auth
