@@ -6,11 +6,11 @@
           class='card h-100'
           style='background-color: rgba(172, 165, 158, 0.397);'
         >
-          <h3
-            class='card-header text-light d-flex justify-content-center bg-success'
+          <h1
+            class='card-header text-light d-flex justify-content-center bg-success fs-3'
           >
             Instrument for sale!
-          </h3>
+          </h1>
           <div
             class='card-header text-body-tertiary justify-content-center text-center'
             style='height: 50px; align-content: center; font-size: 14px;'
@@ -23,14 +23,14 @@
             {{format_time post.createdAt}}
           </div>
           <div class='pb-0'>
-            <h5 class='card-title text-center'>
+            <span class='card-title text-center'>
               <a
                 href='/posts/{{post.id}}'
                 class='post-link text-success fs-4 d-flex justify-content-center text-decoration-none text-shadow mt-2'
               >
                 {{post.title}}
               </a>
-            </h5>
+            </span>
             <div class='card-price mb-3 d-flex justify-content-center'>
               <span
                 class='badge mt-2 bg-success w-25 py-3 fs-6 box-shadow'
@@ -95,7 +95,7 @@
       {{!-- comment cards --}}
     <div id='form-adjust' class="container">
       <div class="row">
-        <h5 id="commentHeader" class="text-center py-2">Recent comments:</h5>
+        <span id="commentHeader" class="text-center py-2 fs-5">Recent comments:</span>
         <div class="comments">
           {{#each post.comments}}
           <div class="card border m-2 box-shadow" style="border-radius: 10px">
@@ -121,9 +121,9 @@
 <div class="comment-form-container">   
     <form class="form comment-form" id="comment-form" style="display: none">
         <div class="form-group">
-            <h5 id="commentFormHeader">
-              <label for="comment" class="form-label mt-5 text-success d-flex justify-content-center">Add Comment:</label>
-            </h5>
+            <span id="commentFormHeader">
+              <label for="comment" class="form-label mt-5 text-success d-flex justify-content-center fs-4">Add Comment:</label>
+            </span>
             <div>
       <textarea class="form-control" id="comment" type="text" rows="3"></textarea>
         <div class="form-group mt-3 d-flex justify-content-center">
