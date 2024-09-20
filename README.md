@@ -40,7 +40,7 @@
     * NPM package- Cloudinary
 
 ## Usage
-To view this webpage, please visit https://jmp-melody-exchange-ec87232d5088.herokuapp.com/
+To view this webpage, please visit https://jmp-melody-exchange-6320a3cefa5d.herokuapp.com/
 
 To view this project's repository, please visit https://github.com/JoshMassa/melody-exchange
 
